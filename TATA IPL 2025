@@ -1,87 +1,202 @@
-<style>
-    .announcement-bar {
-        color: black;
-        padding: 10px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tg- @cric_stream</title>
+    <link rel="shortcut icon" href="#">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+        }
+        .file-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+        .directory-item, .file-item {
+            margin: 10px;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform .3s ease, box-shadow .3s ease;
+            background-color: #1a1a1a;
+            padding: 10px;
+            width: calc(14.28% - 20px);
+            box-sizing: border-box;
+        }
+        .directory-item img, .file-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform .3s ease;
+        }
+        .directory-item a, .file-item a {
+            text-decoration: none;
+            color: #00bfff;
+            font-weight: 700;
+            display: block;
+            margin-top: 5px;
+            transition: color .3s ease;
+        }
+        .directory-item:hover, .file-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+        }
+        .directory-item img:hover, .file-item img:hover {
+            transform: scale(1.1);
+        }
+        .directory-item a:hover, .file-item a:hover {
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            color: #00bfff;
+            margin-bottom: 20px;
+        }
+        .telegram-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #0088cc;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .telegram-toggle:hover {
+            background-color: #006699;
+        }
+        @media (max-width: 1024px) {
+            .directory-item, .file-item {
+                width: calc(25% - 20px);
+            }
+        }
+        @media (max-width: 768px) {
+            .directory-item, .file-item {
+                width: calc(33.333% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .directory-item, .file-item {
+                width: calc(50% - 20px);
+                margin: 5px;
+                padding: 5px;
+            }
+            .telegram-toggle {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+            h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <!-- Disable DevTools -->
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="Drmlive_Bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+    <script type="text/javascript">
+        function onTelegramAuth(user) {
+            alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+        }
+    </script>
+</head>
 
-    .marquee {
-        display: inline-block;
-        animation: marquee 65.00s linear infinite;
-        padding-left: 100%; /* Add initial offset */
-    }
+    <script data-cfasync="false" type="text/javascript" id="clever-core">
+/* <![CDATA[ */
+    (function (document, window) {
+        var a, c = document.createElement("script"), f = window.frameElement;
 
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
-</style>
+        c.id = "CleverCoreLoader91139";
+        c.src = "https://cdn-adtech.com/3d9e314d1aec5d4681f05e8f58c75e67.js";
 
-<div class="announcement-bar">
-    <div class="marquee">
-          ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner. 
+        c.async = !0;
+        c.type = "text/javascript";
+        c.setAttribute("data-target", window.name || (f && f.getAttribute("id")));
+        c.setAttribute("data-callback", "put-your-callback-function-here");
+        c.setAttribute("data-callback-url-click", "put-your-click-macro-here");
+        c.setAttribute("data-callback-url-view", "put-your-view-macro-here");
         
-         ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
+
+        try {
+            a = parent.document.getElementsByTagName("script")[0] || document.getElementsByTagName("script")[0];
+        } catch (e) {
+            a = !1;
+        }
+
+        a  (a = document.getElementsByTagName("head")[0]  document.getElementsByTagName("body")[0]);
+        a.parentNode.insertBefore(c, a);
+    })(document, window);
+/* ]]> */
+    </script>
     
-          ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-           ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-           ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-    </div>
-</div>
+<body>
+    <a href="https://t.me/cric_stream" class="telegram-toggle">Join Telegram</a>
+    <h1>TATA IPL 2025</h1>
+    <div class="file-container">
+
+        
+
+        <div class='directory-item'>
+            <a href='https://cdn.shopify.com/s/files/1/0684/1643/8455/files/ccfceaae-8c0f-42c4-aba7-9de8242d1c97.jpg?v=1743179548'><img src='iplhin.jpg' alt='IPL Hindi'></a>
+            <a href='iplhin.html'>IPL Hindi</a></div>
+
+        <div class='directory-item'>
+            <a href='ipleng.html'><img src='ipleng.jpg' alt='IPL English'></a>
+            <a href='ipleng.html'>IPL English</a></div>
+
+       <!--
+        
+
+        
+        <div class='directory-item'>
+            <a href='willow2.html'><img src='willow2hin.jpg' alt='Willow 2'></a>
+            <a href='willow2.html'>Willow 2 Hindi</a></div>
 
 
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/f9746dfef85e6ec5c7141e4723441071/invoke.js"></script>
+        <div class='directory-item'>
+            <a href='willow2eng.html'><img src='willow2eng.jpg' alt='Willow 2'></a>
+            <a href='willow2eng.html'>Willow 2 English</a></div>
+          -->  
+        <div class='directory-item'>
+            <a href='star1hindi.html'><img src='star1hd.jpg' alt='Star 1 HD'></a>
+            <a href='star1hindi.html'>IPL (Tamil) </a></div>
+        <!--
+        <div class='directory-item'>
+            <a href='starsports2hindi.html'><img src='star2.jpg' alt='Star Sports 2'></a>
+            <a href='starsports2hindi.html'>Star Sports 2 Hindi</a></div>
+        -->
+        <div class='directory-item'>
+            <a href='willowsports.html'><img src='willowsports.jpg' alt='Willow Sports'></a>
+            <a href='willowsports.html'>IPL (Telegu)</a></div>
+        
 
-<div style="text-align: center;"><br></div>
-<div id="myHeader">
-<div id="http">
-<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+        <div class='directory-item'>
+            <a href='tsports.html'><img src='tsports.jpg' alt='tsports'></a>
+            <a href='tsports.html'>IPL(Kannada)</a></div>
+         
+        <!--
+        <div class='directory-item'>
+            <a href='https://cricstream4u.github.io/willow/'><img src='willow.jpg' alt='Fancode Live Events'></a>
+            <a href='https://cricstream4u.github.io/willow/'>Willow 2</a></div>
+        -->
+        
+        
+      
+           </div>
 
-<div id="player">
-</div>
-<script type="text/javascript">
-jwplayer("player").resize(480, 270);
-    jwplayer('player').setup({
-        file: 'https://002.fclplayer.online/live/csstream1/chunklist.m3u8?vidictid=201742864291&id=1001&pk=29c51cc3aa26f2850990737a5240b2dc476e8fcfb4b7739d0c8a143488e0382d',
+    <!-- tracker -->
 
-playbackRateControls: [0.75, 1, 1.25, 1.5],
-        title: 'Esports Live ',
-        width: '100%',
-        aspectratio: '16:9',
-        mute: false,
-        repeat: 'true',
-        autostart:true,
-        primary: 'html5',
-        type: 'm38u',
-        setFullscreen: true,
-controls: true,
-showCode: true,
-responsive: true,
-skin: {
-  name: "glow",
-       active: "red",
-       inactive: "",
-       Background: ""
-  }
-    });
-</script>
-</div>
-</div>
-<script>
-window.onscroll = function() {myFunction()};
-
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
-
+    
+</body>
+</html>
