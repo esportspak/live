@@ -9,58 +9,7 @@
     <!-- Shaka Player UI compiled library default CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.12.5/controls.min.css">
     <!-- Chromecast SDK (optional for Chromecast support) -->
-    <style>
-      #live-label {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        font-size: 10px; /* Default font size for larger screens */
-        color: white;
-        background-color: rgba(0, 0, 0, 0.4);
-        padding: 4px 8px;
-        border-radius: 5px;
-        display: none;
-        z-index: 10;
-      }
-
-      #live-label a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      /* For screens larger than 768px (laptops, desktops) */
-      @media (min-width: 768px) {
-        #live-label {
-          font-size: 8px;
-          padding: 5px 10px;
-        }
-      }
-
-      /* For smaller screens (mobiles) */
-      @media (max-width: 767px) {
-        #live-label {
-          font-size: 5px;
-          padding: 2px 4px;
-          top: 3px;
-          left: 3px;
-        }
-      }
-
-      /* Popup styles */
-        
-
-        
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    
   </head>
   <body>
     <div data-shaka-player-container style="max-width:100%">
