@@ -93,8 +93,43 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online User Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .counter {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <p class="counter">Users Online: <span id="userCount">0</span></p><script>
+    function updateUserCount() {
+        let users = localStorage.getItem('onlineUsers') || 0;
+        users = parseInt(users) + 1;
+        localStorage.setItem('onlineUsers', users);
+        document.getElementById('userCount').innerText = users;
+    }
+
+    function removeUser() {
+        let users = localStorage.getItem('onlineUsers') || 1;
+        users = Math.max(parseInt(users) - 1, 0);
+        localStorage.setItem('onlineUsers', users);
+    }
+
+    updateUserCount();
+    window.addEventListener('beforeunload', removeUser);
 </script>
-<!-- BEGIN: Powered by Supercounters.com -->
-<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1711926,"Users Online","170ddb");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
-</center>
-<!-- END: Powered by Supercounters.com -->
+
+</body>
+</html>
