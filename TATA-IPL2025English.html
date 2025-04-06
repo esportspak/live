@@ -1,3 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pop-Up Notification</title>
+  <style>
+    #popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    #popup-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #popup-content button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div id="popup">
+  <div id="popup-content">
+    <p>If you see an"Error Code" on the screen, kindly refresh the website. Everything will start working again smoothly.</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<script>
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  // Show popup every time site is opened, and hide it after 5 seconds
+  window.onload = function() {
+    document.getElementById('popup').style.display = 'flex';
+
+    // Auto-close after 10 seconds (5000 milliseconds)
+    setTimeout(closePopup, 5000);
+  }
+</script>
+
+</body>
+</html>
 <style>
     .announcement-bar {
         color: black;
