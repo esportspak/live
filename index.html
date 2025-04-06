@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website Logo</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000; /* بلیک بیک گراؤنڈ */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      width: 100px; /* بڑا سائز */
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/IMG-20250311-WA0089-removebg-preview.png?v=1743971763" alt="E Sports Logo" class="logo">
+
+</body>
+</html>
 <meta name="174c5c7a24dac851c2ca66c46e0970ab4ebfffe5" content="174c5c7a24dac851c2ca66c46e0970ab4ebfffe5" />
 <meta name="monetag" content="fd70a6997b8f3a8dea5859c93425735a">
 <!DOCTYPE html>
@@ -28,7 +55,7 @@ img {vertical-align: middle; width: 100%; height: auto;}
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
+/* Number text */
 .numbertext {
   color: #ffffff;
   font-size: 14px;
@@ -37,7 +64,7 @@ img {vertical-align: middle; width: 100%; height: auto;}
   top: 0;
 }
 
-/* The dots/bullets/indicators */
+/* Dots */
 .dot-container {
   text-align: center;
   padding: 10px;
@@ -88,7 +115,6 @@ img {vertical-align: middle; width: 100%; height: auto;}
 .watch-button:hover {
   background-color: #d63b00;
 }
-
 </style>
 </head>
 <body>
@@ -102,7 +128,7 @@ img {vertical-align: middle; width: 100%; height: auto;}
     <div class="numbertext"></div>
     <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/38c23677-44db-4ffc-ae89-432b69bc2b02.jpg?v=1743899082" alt="Slide 1">
     <div class="button-container">
-      <a href="Hblpsl.html" class="watch-button">Watch Now</a>
+      <a href="https://esportspk.site/Hblpsl.html" class="watch-button">Watch Now</a>
     </div>
   </div>
 
@@ -111,7 +137,16 @@ img {vertical-align: middle; width: 100%; height: auto;}
     <div class="numbertext"></div>
     <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/Purple-White-Modern-Professional-Soccer-Match-Banner_2.jpg?v=1742770960" alt="Slide 2">
     <div class="button-container">
-      <a href="TATAIPL2025.html" class="watch-button">Watch Now</a>
+      <a href="https://esportspk.site/TATAIPL2025.html" class="watch-button">Watch Now</a>
+    </div>
+  </div>
+
+  <!-- Slide 3 (New Slide) -->
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/images_8.jpg?v=1743972237" alt="Slide 3">
+    <div class="button-container">
+      <a href="https://esportspk.site/Epl.html" class="watch-button">Watch Now</a>
     </div>
   </div>
 
@@ -121,6 +156,7 @@ img {vertical-align: middle; width: 100%; height: auto;}
 <div class="dot-container">
   <span class="dot"></span> 
   <span class="dot"></span> 
+  <span class="dot"></span> <!-- New dot for Slide 3 -->
 </div>
 
 <script>
@@ -141,7 +177,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // ہر 2 سیکنڈ میں سلائیڈ بدلے گا
+  setTimeout(showSlides, 3000); // ہر 2 سیکنڈ بعد سلائیڈ بدلے گا
 }
 </script>
 
