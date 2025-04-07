@@ -98,42 +98,54 @@
            ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
     </div>
 </div>
-<div style="text-align: center;"><br /></div>
-<div id="myHeader">
-<div id="http">
-<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+</head>
+<body>
+  <div id="player"></div>
 
-<div id="player">
-</div>
-<script type="text/javascript">
-jwplayer("player").resize(480, 270);
-    jwplayer('player').setup({
+  <script type="text/javascript">
+    var playerInstance = jwplayer("player");
+
+    function setupPlayer() {
+      playerInstance.setup({
         file: 'https://re.fredflix.fun/playlist/a3d48c46-7902-45e2-abf9-0fab60c4d117/playlist.m3u8',
-
-playbackRateControls: [0.75, 1, 1.25, 1.5],
-        title: 'Esports Live ',
+        playbackRateControls: [0.75, 1, 1.25, 1.5],
+        title: 'Esports Live',
         width: '100%',
         aspectratio: '16:9',
         mute: false,
-        repeat: 'true',
-        autostart:true,
+        autostart: true,
         primary: 'html5',
-        type: 'm38u',
-        setFullscreen: true,
-controls: true,
-showCode: true,
-responsive: true,
-skin: {
-  name: "glow",
-       active: "white",
-       inactive: "",
-       Background: ""
-  }
-    });
-</script>
-</div>
-</div>
-<script>
+        type: 'hls',
+        controls: true,
+        repeat: true,
+        skin: {
+          name: "glow",
+          active: "white",
+          inactive: "",
+          background: ""
+        }
+      });
+
+      // Handle errors
+      playerInstance.on('error', function(e) {
+        console.log("Error detected: ", e.message);
+        if (e.message.includes("233403") || e.message.toLowerCase().includes("protected")) {
+          setTimeout(function() {
+            console.log("Auto-restarting player...");
+            setupPlayer(); // Reload the player
+          }, 2000); // 2 seconds
+        }
+      });
+    }
+
+    setupPlayer(); // Initial setup
+  </script>
+</body>
+</html>
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");
