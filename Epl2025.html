@@ -1,71 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pop-Up Notification</title>
-  <style>
-    #popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    #popup-content {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 400px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    #popup-content button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #popup-content button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-
-<div id="popup">
-  <div id="popup-content">
-    <p>If you see "Error Code" on the screen, kindly refresh the website. Everything will start working again smoothly.</p>
-    <button onclick="closePopup()">OK</button>
-  </div>
-</div>
-
-<script>
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-  }
-
-  // Show popup every time site is opened, and hide it after 5 seconds
-  window.onload = function() {
-    document.getElementById('popup').style.display = 'flex';
-
-    // Auto-close after 9 seconds (9000 milliseconds)
-    setTimeout(closePopup, 5000);
-  }
-</script>
-
-</body>
-</html>
 <style>
     .announcement-bar {
         color: black;
@@ -103,54 +35,54 @@
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/f9746dfef85e6ec5c7141e4723441071/invoke.js"></script>
 
-<div style="text-align: center;"><br></div>
-<div id="myHeader">
-<div id="http">
-<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+</head>
+<body>
+  <div id="player"></div>
 
-<div id="player">
-</div>
-<script type="text/javascript">
-jwplayer("player").resize(480, 270);
-    jwplayer('player').setup({
+  <script type="text/javascript">
+    var playerInstance = jwplayer("player");
+
+    function setupPlayer() {
+      playerInstance.setup({
         file: 'https://re.fredflix.fun/playlist/eacf6c3f-0773-4bc3-a03a-cfee09f10348/playlist.m3u8',
-
-playbackRateControls: [0.75, 1, 1.25, 1.5],
-        title: 'Esports Live ',
+        playbackRateControls: [0.75, 1, 1.25, 1.5],
+        title: 'Esports Live',
         width: '100%',
         aspectratio: '16:9',
         mute: false,
-        repeat: 'true',
-        autostart:true,
+        autostart: true,
         primary: 'html5',
-        type: 'm38u',
-        setFullscreen: true,
-controls: true,
-showCode: true,
-responsive: true,
-skin: {
-  name: "glow",
-       active: "red",
-       inactive: "",
-       Background: ""
-  }
-    });
-</script>
-</div>
-</div>
-<script>
-window.onscroll = function() {myFunction()};
+        type: 'hls',
+        controls: true,
+        repeat: true,
+        skin: {
+          name: "glow",
+          active: "white",
+          inactive: "",
+          background: ""
+        }
+      });
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+      // Handle errors
+      playerInstance.on('error', function(e) {
+        console.log("Error detected: ", e.message);
+        if (e.message.includes("233403") || e.message.toLowerCase().includes("protected")) {
+          setTimeout(function() {
+            console.log("Auto-restarting player...");
+            setupPlayer(); // Reload the player
+          }, 2000); // 2 seconds
+        }
+      });
+    }
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
+    setupPlayer(); // Initial setup
+  </script>
+</body>
+</html>
 </script>
 <!-- BEGIN: Powered by Supercounters.com -->
 <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1711926,"Users Online","170ddb");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
