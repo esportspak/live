@@ -107,28 +107,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Esports Live</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Clappr and plugins -->
     <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/level-selector@0.2.0/dist/level-selector.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+        }
+        #player {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <div id="player" style="height: 100vh; width: 100vw;"></div>
+    <div id="player"></div>
 
     <script>
-        // Initialize Clappr with direct source to M3u8.php
+        // Initialize Clappr with direct source to M3u8
         var player = new Clappr.Player({ 
-            source: 'https://re.fredflix.fun/playlist/a3d48c46-7902-45e2-abf9-0fab60c4d117/playlist.m3u8', // Direct source for 
+            source: 'https://re.fredflix.fun/playlist/a3d48c46-7902-45e2-abf9-0fab60c4d117/playlist.m3u8',
             width: '100%',
             height: '100%',
             autoPlay: true,
+            mute: false, // Set to true if you want to start muted
             plugins: [HlsjsPlayback, LevelSelector],
-            mimeType: "application/x-mpegURL",
-            mediacontrol: { seekbar: "red", buttons: "#fff" },
-            parentId: "#player"
+            playback: {
+                hlsjsConfig: {
+                    enableWorker: true,
+                    maxBufferLength: 30,
+                    maxMaxBufferLength: 600,
+                    maxBufferSize: 60 * 1000 * 1000,
+                    maxBufferHole: 0.5
+                }
+            },
+            mediacontrol: { 
+                seekbar: "#FF0000", 
+                buttons: "#FFFFFF",
+                hideDelay: 3000
+            },
+            parentId: "#player",
+            events: {
+                onReady: function() {
+                    console.log("Player is ready");
+                    // Force play if autoplay was blocked
+                    if (!player.isPlaying()) {
+                        player.play();
+                    }
+                },
+                onError: function(error) {
+                    console.error("Player error:", error);
+                    // Add error handling here
+                }
+            }
         });
+
+        // Handle autoplay restrictions
+        document.addEventListener('click', function() {
+            if (!player.isPlaying()) {
+                player.play();
+            }
+        }, { once: true });
     </script>
+</body>
+</html>
 </body>
 <!-- BEGIN: Powered by Supercounters.com -->
 <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1711926,"Users Online","170ddb");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
