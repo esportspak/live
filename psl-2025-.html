@@ -101,41 +101,51 @@ function myFunction() {
 <head>
   <meta charset="UTF-8">
   <title>Secure Page</title>
+
+  <!-- Block iframe with meta tags -->
+  <meta http-equiv="X-Frame-Options" content="deny">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+
   <script>
-    // iframe block
+    // Block if page is inside an iframe
     if (window.top !== window.self) {
       window.top.location = window.self.location;
     }
 
-    // Disable right-click
+    // Block right-click
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
-    }, false);
+    });
 
-    // Block F12, Ctrl+Shift+I, Ctrl+U etc.
+    // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+Shift+J
     document.addEventListener('keydown', function(e) {
-      // F12
-      if (e.keyCode === 123) {
+      if (
+        e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || // Ctrl+Shift+I or J
+        (e.ctrlKey && e.key === 'u') || // Ctrl+U
+        (e.ctrlKey && e.key === 's')    // Ctrl+S
+      ) {
         e.preventDefault();
-      }
-      // Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+U
-      if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'u')) {
-        e.preventDefault();
+        return false;
       }
     });
   </script>
+
   <style>
     /* Optional: disable text selection */
     body {
       user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
     }
   </style>
 </head>
 <body>
   <h1></h1>
-  <p></p>
+  <p>۔</p>
+
+  <!-- Secure video loading (must be token-based on backend) -->
+  <video controls autoplay>
+    <source src="stream.php?video=abc123&token=xxxx&expires=yyyy" type="application/vnd.apple.mpegurl">
+    آپ کا براؤزر ویڈیو سپورٹ نہیں کرتا۔
+  </video>
 </body>
 </html>
