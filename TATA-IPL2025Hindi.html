@@ -96,3 +96,47 @@ function myFunction() {
 	};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/cca6bdfd09efb43edafd70dc832b3fb2/invoke.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Page</title>
+  <script>
+    // iframe block
+    if (window.top !== window.self) {
+      window.top.location = window.self.location;
+    }
+
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    }, false);
+
+    // Block F12, Ctrl+Shift+I, Ctrl+U etc.
+    document.addEventListener('keydown', function(e) {
+      // F12
+      if (e.keyCode === 123) {
+        e.preventDefault();
+      }
+      // Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+U
+      if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+      }
+    });
+  </script>
+  <style>
+    /* Optional: disable text selection */
+    body {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1><h1>
+  <p></p>
+</body>
+</html>
+
