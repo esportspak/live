@@ -135,3 +135,61 @@
   <p></p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8">
+  <title>محفوظ ویب سائٹ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      overflow: hidden;
+    }
+  </style>
+
+  <script>
+    // موبائل پر ہولڈ بلاک کریں
+    document.addEventListener('touchstart', function (e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault(); // رائٹ کلک بند
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+        (e.ctrlKey && e.key === 'U') || 
+        (e.ctrlKey && e.key === 'S') ||
+        (e.metaKey && e.key.toLowerCase() === 'u') // Mac پر Cmd+U
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // ڈویلپر ٹول detect کرنے کے لیے
+    setInterval(function() {
+      const element = new Image();
+      Object.defineProperty(element, 'id', {
+        get: function() {
+          alert('Developer Tools Blocked!');
+          throw new Error('Developer tools not allowed');
+        }
+      });
+      console.log(element);
+    }, 3000);
+  </script>
+</head>
+<body>
+  <h1></h1>
+  <p></p>
+</body>
+</html>
