@@ -1,68 +1,94 @@
+<style>
+    .announcement-bar {
+        color: black;
+        padding: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+    }
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="Cric stream Favicon.jpg">
-    <title>TG-@cric_stream</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://xyzts.pages.dev/style.css">
-    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
-    <style>
-      body {
-        margin: 0px;
-        padding-top: 5px;
-        font-family: Arial, sans-serif;
-        width: 100%;
-      }
+    .marquee {
+        display: inline-block;
+        animation: marquee 65.00s linear infinite;
+        padding-left: 100%; /* Add initial offset */
+    }
 
-      #jwplayerDiv {
-        width: 100%;
-        height: 100%;
-        position: relative; /* This makes the live label position relative to the video player */
-      }
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+</style>
 
-     .sticky-footer {
-           position: fixed;
-           bottom: 0;
-           width: 100%;
-           background: #fff;
-           color: white;
-           text-align: center;
-           padding: 0px;
-     }
-    </style>
-  </head>
-  <body>
-    <div id="jwplayerDiv">
+<div class="announcement-bar">
+    <div class="marquee">
+          ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner. 
+        
+         ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
+    
+          ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
+           ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
+           ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
     </div>
+</div>
 
-    <script type="text/javascript">
-      
-      jwplayer("jwplayerDiv").setup({
-        file: "https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd",
-        position: 'bottom',
-        type: "dash",
-        drm: {
-          "clearkey": {
-            "keyId": "1779c27b9d077a3ba0c9cc1bb9a94b9f",
-            "key": "cc5cf3b7928fb9e0a1ee6a8b566f0a8e"
-          }
-        },
-        autostart: true, // Enable auto-play
-        mute: false, // Unmute the video
-        image: "WhatsApp Image 2025-02-22 at 5.19.53 PM.jpeg" // Replace with your thumbnail image URL
 
-      });
-    </script>
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/f9746dfef85e6ec5c7141e4723441071/invoke.js"></script>
 
-    <center>
-      <!-- BEGIN: Powered by Supercounters.com -->
-      <center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1707487,"Users Online","170ddb");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
-      </center>
-      <!-- END: Powered by Supercounters.com -->
-   <!DOCTYPE html>
+<div style="text-align: center;"><br></div>
+<div id="myHeader">
+<div id="http">
+<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+
+<div id="player">
+</div>
+<script type="text/javascript">
+jwplayer("player").resize(480, 270);
+    jwplayer('player').setup({
+        file: 'https://004.fclplayer.net/live/csstream6/playlist.m3u8?id=1006&pk=c5b3f14d978b13c6da7fb45d5079dd088aa84267f9e9524361d2bc0fb6e8d867',
+
+playbackRateControls: [0.75, 1, 1.25, 1.5],
+        title: 'Esports Live ',
+        width: '100%',
+        aspectratio: '16:9',
+        mute: false,
+        repeat: 'true',
+        autostart:true,
+        primary: 'html5',
+        type: 'm38u',
+        setFullscreen: true,
+controls: true,
+showCode: true,
+responsive: true,
+skin: {
+  name: "glow",
+       active: "red",
+       inactive: "",
+       Background: ""
+  }
+    });
+</script>
+</div>
+</div>
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+<!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1711926,"Users Online","170ddb");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -105,6 +131,7 @@
   <p></p>
 </body>
 </html>
+
 <script>
   const allowedParent = "https://esportspk.site";
 
@@ -118,4 +145,3 @@
     }
   }
 </script>
-	    
