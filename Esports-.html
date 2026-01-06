@@ -275,3 +275,72 @@
 </body>
 
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discourage DevTools & View Source</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Optional: prevent text selection (desktop + mobile) */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+    <script>
+        // Disable right-click (desktop) and long-press context menu (mobile)
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // Block some keyboard shortcuts (mostly desktop)
+        document.addEventListener('keydown', function (e) {
+            // F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+
+            // Ctrl+Shift+I / J / C   (DevTools shortcuts in many browsers)
+            if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+                e.preventDefault();
+            }
+
+            // Ctrl+U (View Source)
+            if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+                e.preventDefault();
+            }
+
+            // Ctrl+S (Save Page)
+            if (e.ctrlKey && e.key.toUpperCase() === 'S') {
+                e.preventDefault();
+            }
+        });
+
+        // Optional: detect if DevTools is open (very unreliable)
+        // and redirect or show a warning
+        (function() {
+            let devtoolsOpen = false;
+            const threshold = 160;
+
+            setInterval(function() {
+                const widthDiff  = window.outerWidth - window.innerWidth;
+                const heightDiff = window.outerHeight - window.innerHeight;
+                if (widthDiff > threshold || heightDiff > threshold) {
+                    if (!devtoolsOpen) {
+                        devtoolsOpen = true;
+                        alert('Developer tools are not allowed on this page.');
+                        // Optionally: window.location.href = 'about:blank';
+                    }
+                } else {
+                    devtoolsOpen = false;
+                }
+            }, 1000);
+        })();
+    </script>
+</head>
+<body>
