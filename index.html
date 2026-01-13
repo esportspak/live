@@ -1,4 +1,172 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ads Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup {
+    width: 90%;
+    max-width: 420px;
+    background: #3a3a3a;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+.support {
+    color: #ffeb3b;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.btn {
+    background: #a12a2a;
+    color: #fff;
+    padding: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: block;
+    margin: 15px 0;
+    font-weight: bold;
+}
+.small {
+    font-size: 13px;
+    color: #ccc;
+}
+.green {
+    color: #00ff6a;
+}
+.reload {
+    background: #eee;
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.error {
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+.counter {
+    color: #ffeb3b;
+    font-size: 18px;
+    margin-top: 10px;
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay">
+    <div class="popup">
+        <div class="support">We Need Support</div>
+
+        <a href="#" class="btn" id="adBtn">
+            Click Here<br><small>Open 1 Ads Per Day</small>
+        </a>
+
+        <div class="counter" id="counter">20</div>
+
+        <p class="small">
+            1. Click the ads button above.<br>
+            2. Ads will open in your browser.<br>
+            3. Watch ads for more than 20 seconds.<br>
+            4. Return back to the website.
+        </p>
+
+        <p class="green">
+            Without ads, we don’t have enough funds to run this website.
+        </p>
+
+        <p class="error" id="errorMsg">
+            ❌ You closed the ad too early. Please try again.
+        </p>
+
+        <div class="reload" id="retryBtn" style="display:none;">Open Ad Again</div>
+    </div>
+</div>
+
+<script>
+const AD_LINK = "https://otieu.com/4/10457378";
+const SITE_LINK = "https://esportspk.site/";
+const TOTAL_SECONDS = 20;
+const INTERVAL = 4 * 60 * 60 * 1000;
+
+const overlay = document.getElementById("overlay");
+const adBtn = document.getElementById("adBtn");
+const errorMsg = document.getElementById("errorMsg");
+const counter = document.getElementById("counter");
+const retryBtn = document.getElementById("retryBtn");
+
+const lastSeen = localStorage.getItem("lastAdSeen");
+const now = Date.now();
+
+// 4 hours strict rule
+if (lastSeen && now - lastSeen < INTERVAL) {
+    overlay.style.display = "none";
+}
+
+function startAd() {
+    errorMsg.style.display = "none";
+    retryBtn.style.display = "none";
+    counter.style.display = "block";
+
+    window.open(AD_LINK, "_blank");
+
+    let secondsLeft = TOTAL_SECONDS;
+    counter.textContent = secondsLeft;
+
+    const timer = setInterval(() => {
+        secondsLeft--;
+        counter.textContent = secondsLeft;
+
+        // user left page / refreshed → treat as fail
+        if (document.hidden) {
+            clearInterval(timer);
+            errorMsg.style.display = "block";
+            retryBtn.style.display = "inline-block";
+            return;
+        }
+
+        if (secondsLeft <= 0) {
+            clearInterval(timer);
+            localStorage.setItem("lastAdSeen", Date.now());
+
+            // Cloudflare-safe redirect
+            window.location.href = SITE_LINK;
+        }
+    }, 1000);
+}
+
+adBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    startAd();
+});
+
+retryBtn.addEventListener("click", function () {
+    startAd();
+});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
 
 
 
@@ -583,3 +751,4 @@ function showSlides() {
 
 
 </html>
+
