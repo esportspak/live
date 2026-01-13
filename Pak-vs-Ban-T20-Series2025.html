@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Ads Support</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
     margin: 0;
@@ -87,18 +86,18 @@ body {
             1. Click the ads button above.<br>
             2. Ads will open in your browser.<br>
             3. Watch ads for more than 20 seconds.<br>
-            4. Return back to the website.
+            4. Return back to the website .
         </p>
 
         <p class="green">
-            Without ads, we don’t have enough funds to run this website.
+            Without ads, we don’t have enough funds to run this website .
         </p>
 
         <p class="error" id="errorMsg">
-            ❌ You closed the ad too early. Please try again.
+            ❌ You must watch the ad for at least 20 seconds.
         </p>
 
-        <div class="reload" id="retryBtn" style="display:none;">Open Ad Again</div>
+        <div class="reload" onclick="location.reload()">Reload</div>
     </div>
 </div>
 
@@ -106,25 +105,25 @@ body {
 const AD_LINK = "https://otieu.com/4/10457378";
 const SITE_LINK = "https://esportspk.site/";
 const TOTAL_SECONDS = 20;
-const INTERVAL = 4 * 60 * 60 * 1000;
+const INTERVAL = 4 * 60 * 60 * 1000; // 4 hours
 
 const overlay = document.getElementById("overlay");
 const adBtn = document.getElementById("adBtn");
 const errorMsg = document.getElementById("errorMsg");
 const counter = document.getElementById("counter");
-const retryBtn = document.getElementById("retryBtn");
 
 const lastSeen = localStorage.getItem("lastAdSeen");
 const now = Date.now();
 
-// 4 hours strict rule
+// STRICT 4 hours rule
 if (lastSeen && now - lastSeen < INTERVAL) {
     overlay.style.display = "none";
 }
 
-function startAd() {
+adBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
     errorMsg.style.display = "none";
-    retryBtn.style.display = "none";
     counter.style.display = "block";
 
     window.open(AD_LINK, "_blank");
@@ -136,31 +135,14 @@ function startAd() {
         secondsLeft--;
         counter.textContent = secondsLeft;
 
-        // user left page / refreshed → treat as fail
-        if (document.hidden) {
-            clearInterval(timer);
-            errorMsg.style.display = "block";
-            retryBtn.style.display = "inline-block";
-            return;
-        }
-
         if (secondsLeft <= 0) {
             clearInterval(timer);
             localStorage.setItem("lastAdSeen", Date.now());
 
-            // Cloudflare-safe redirect
+            // SAME TAB redirect (NO refuses to connect error)
             window.location.href = SITE_LINK;
         }
     }, 1000);
-}
-
-adBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    startAd();
-});
-
-retryBtn.addEventListener("click", function () {
-    startAd();
 });
 </script>
 
