@@ -2,14 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ads Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Esports PK</title>
+
 <style>
+/* ===== SLIDER CSS ===== */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Verdana, sans-serif;
     background: #000;
     color: #fff;
 }
+
+.mySlides { display: none; position: relative; }
+img { vertical-align: middle; width: 100%; height: auto; }
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.dot-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.active {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4 }
+    to { opacity: 1 }
+}
+
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.watch-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #ff4500;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.watch-button:hover {
+    background-color: #d63b00;
+}
+
+/* ===== POPUP CSS ===== */
 .overlay {
     position: fixed;
     inset: 0;
@@ -17,7 +83,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 }
+
 .popup {
     width: 90%;
     max-width: 420px;
@@ -26,11 +94,13 @@ body {
     border-radius: 10px;
     text-align: center;
 }
+
 .support {
     color: #ffeb3b;
     font-size: 24px;
     margin-bottom: 20px;
 }
+
 .btn {
     background: #a12a2a;
     color: #fff;
@@ -41,37 +111,63 @@ body {
     margin: 15px 0;
     font-weight: bold;
 }
+
 .small {
     font-size: 13px;
     color: #ccc;
 }
+
 .green {
     color: #00ff6a;
 }
+
 .reload {
     background: #eee;
     color: #000;
     padding: 6px 14px;
     border-radius: 4px;
-    display: inline-block;
-    margin-top: 10px;
     cursor: pointer;
 }
+
 .error {
     color: red;
-    font-size: 14px;
     display: none;
 }
+
 .counter {
     color: #ffeb3b;
     font-size: 18px;
-    margin-top: 10px;
     display: none;
 }
 </style>
 </head>
+
 <body>
 
+<!-- ===== SLIDER HTML ===== -->
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/IMG-20260106-WA0014.jpg?v=1767713884">
+        <div class="button-container">
+            <a href="https://esportspk.site/Esports-.html" class="watch-button">Watch Now</a>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/IMG-20260106-WA0014.jpg?v=1767713884">
+        <div class="button-container">
+            <a href="https://esportspk.site/Esports-.html" class="watch-button">Watch Now</a>
+        </div>
+    </div>
+</div>
+
+<div class="dot-container">
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<!-- ===== POPUP HTML ===== -->
 <div class="overlay" id="overlay">
     <div class="popup">
         <div class="support">We Need Support</div>
@@ -101,11 +197,40 @@ body {
     </div>
 </div>
 
+<!-- ===== SLIDER JS ===== -->
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+
+    setTimeout(showSlides, 2000);
+}
+</script>
+
+<!-- ===== POPUP JS ===== -->
 <script>
 const AD_LINK = "https://otieu.com/4/10457378";
 const SITE_LINK = "https://esportspk.site/";
 const TOTAL_SECONDS = 20;
-const INTERVAL = 5 * 5 *300; // 5 minutes 
+const INTERVAL = 5 * 60 * 1000;
 
 const overlay = document.getElementById("overlay");
 const adBtn = document.getElementById("adBtn");
@@ -115,7 +240,6 @@ const counter = document.getElementById("counter");
 const lastSeen = localStorage.getItem("lastAdSeen");
 const now = Date.now();
 
-// STRICT 4 hours rule
 if (lastSeen && now - lastSeen < INTERVAL) {
     overlay.style.display = "none";
 }
@@ -138,8 +262,6 @@ adBtn.addEventListener("click", function (e) {
         if (secondsLeft <= 0) {
             clearInterval(timer);
             localStorage.setItem("lastAdSeen", Date.now());
-
-            // SAME TAB redirect (NO refuses to connect error)
             window.location.href = SITE_LINK;
         }
     }, 1000);
