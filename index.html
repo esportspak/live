@@ -59,15 +59,15 @@ img { vertical-align: middle; width: 100%; height: auto; }
     <div class="popup">
         <div class="support">We Need Support</div>
         <a href="#" class="btn" id="adBtn">Click Here<br><small>Open 1 Ads Per Day</small></a>
-        <div class="counter" id="counter">20</div>
+        <div class="counter" id="counter">10</div>
         <p class="small">
             1. Click the ads button above.<br>
             2. Ads will open in your browser.<br>
-            3. Watch ads for more than 20 seconds.<br>
+            3. Watch ads for at least 10 seconds.<br>
             4. Return back to the website.
         </p>
         <p class="green">Without ads, we don’t have enough funds to run this website.</p>
-        <p class="error" id="errorMsg">❌ You must watch the ad for at least 20 seconds.</p>
+        <p class="error" id="errorMsg">❌ You must watch the ad for at least 10 seconds.</p>
         <div class="reload" onclick="location.reload()">Reload</div>
     </div>
 </div>
@@ -94,7 +94,7 @@ function showSlides() {
 <script>
 const AD_LINK = "https://otieu.com/4/10457378";
 const SITE_LINK = "https://esportspk.site/";
-const TOTAL_SECONDS = 20;
+const TOTAL_SECONDS = 10; // ⬅️ Changed from 20 to 10 seconds
 const INTERVAL = 5 * 60 * 1000;
 
 const overlay = document.getElementById("overlay");
@@ -134,47 +134,19 @@ adBtn.addEventListener("click", function(e){
     }, 1000);
 });
 
-// Check if user closes ad early or navigates to specific links
+// Check if user closes ad early
 setInterval(() => {
-    // List of links that should trigger the ad check
-    const trackedLinks = [
-        "https://esportspk.site/Esports-.html",
-        "https://esportspk.site/STAR-SPORTS-Hindi.html",
-        "https://esportspk.site/STAR-SPORTS-.html",
-        "https://esportspk.site/PTV-SPORTS-.html",
-        "https://esportspk.site/A-SPORTS-.html",
-        "https://esportspk.site/SKY-SPORTS-.html",
-        "https://esportspk.site/STAR-SPORTS.2-.html",
-        "https://esportspk.site/WILLOW-SPORTS.-.html"
-    ];
-
-    // Check if the current window location matches any tracked link
-    const isTrackedPage = trackedLinks.includes(window.location.href);
-
     if (startTime && adWindow && adWindow.closed) {
         let watched = Math.floor((Date.now() - startTime) / 1000);
         if (watched < TOTAL_SECONDS) {
             clearInterval(adTimer);
             counter.style.display = "none";
             errorMsg.style.display = "block";
-            // Re-show overlay if they closed ad too soon and are on a tracked page
-            if (isTrackedPage) {
-                overlay.style.display = "flex";
-            }
         } else {
             overlay.style.display = "none";
             localStorage.setItem("lastAdSeen", Date.now());
         }
         startTime = null;
-    }
-
-    // Also force show overlay if they are on a tracked page and haven't seen ad recently
-    if (isTrackedPage) {
-        const lastSeenCheck = localStorage.getItem("lastAdSeen");
-        const nowCheck = Date.now();
-        if (!lastSeenCheck || nowCheck - lastSeenCheck > INTERVAL) {
-            overlay.style.display = "flex";
-        }
     }
 }, 1000);
 </script>
