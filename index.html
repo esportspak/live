@@ -63,7 +63,7 @@ img { vertical-align: middle; width: 100%; height: auto; }
         <p class="small">
             1. Click the ads button above.<br>
             2. Ads will open in your browser.<br>
-            3. Watch ads for at least 20 seconds.<br>
+            3. Watch ads for more than 20 seconds.<br>
             4. Return back to the website.
         </p>
         <p class="green">Without ads, we don’t have enough funds to run this website.</p>
@@ -80,10 +80,10 @@ function showSlides() {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
+    for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
     slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    for (i = 0; i < dots.length; i++) dots[i].className = dots[i].className.replace(" active", "");
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 2000);
@@ -93,8 +93,9 @@ function showSlides() {
 <!-- ===== POPUP JS ===== -->
 <script>
 const AD_LINK = "https://otieu.com/4/10457378";
+const SITE_LINK = "https://esportspk.site/";
 const TOTAL_SECONDS = 20;
-const INTERVAL = 5*60*1000;
+const INTERVAL = 5 * 60 * 1000;
 
 const overlay = document.getElementById("overlay");
 const adBtn = document.getElementById("adBtn");
@@ -102,28 +103,11 @@ const errorMsg = document.getElementById("errorMsg");
 const counter = document.getElementById("counter");
 
 let adWindow, adTimer, startTime;
-
-// Allowed URLs (partial match)
-const allowedUrls = [
-  "Esports-.html",
-  "STAR-SPORTS-Hindi.html",
-  "STAR-SPORTS-.html",
-  "PTV-SPORTS-.html",
-  "A-SPORTS-.html",
-  "SKY-SPORTS-.html",
-  "STAR-SPORTS.2-.html",
-  "WILLOW-SPORTS.-.htm",
-  "WILLOW_XTRA.SPORTS-.html"
-];
-
-const path = window.location.pathname + window.location.search; // includes query params
-let shouldShow = allowedUrls.some(u => path.includes(u));
-
 const lastSeen = localStorage.getItem("lastAdSeen");
 const now = Date.now();
 
-// Show popup if allowed URL & 5 min passed
-if(shouldShow && (!lastSeen || now - lastSeen > INTERVAL)){
+// ✅ Show popup only if 5 minutes passed OR first visit
+if (!lastSeen || now - lastSeen > INTERVAL) {
     overlay.style.display = "flex";
 } else {
     overlay.style.display = "none";
@@ -135,36 +119,36 @@ adBtn.addEventListener("click", function(e){
     errorMsg.style.display = "none";
     counter.style.display = "block";
     startTime = Date.now();
-    adWindow = window.open(AD_LINK,"_blank");
+    adWindow = window.open(AD_LINK, "_blank");
     let secondsLeft = TOTAL_SECONDS;
     counter.textContent = secondsLeft;
-    adTimer = setInterval(()=>{
+    adTimer = setInterval(() => {
         secondsLeft--;
         counter.textContent = secondsLeft;
-        if(secondsLeft<=0){
+        if (secondsLeft <= 0) {
             clearInterval(adTimer);
             if(adWindow && !adWindow.closed) adWindow.close();
             localStorage.setItem("lastAdSeen", Date.now());
-            overlay.style.display="none";
+            overlay.style.display = "none";
         }
-    },1000);
+    }, 1000);
 });
 
 // Check if user closes ad early
-setInterval(()=>{
-    if(startTime && adWindow && adWindow.closed){
-        let watched = Math.floor((Date.now()-startTime)/1000);
-        if(watched<TOTAL_SECONDS){
+setInterval(() => {
+    if (startTime && adWindow && adWindow.closed) {
+        let watched = Math.floor((Date.now() - startTime) / 1000);
+        if (watched < TOTAL_SECONDS) {
             clearInterval(adTimer);
-            counter.style.display="none";
-            errorMsg.style.display="block";
+            counter.style.display = "none";
+            errorMsg.style.display = "block";
         } else {
-            overlay.style.display="none";
+            overlay.style.display = "none";
             localStorage.setItem("lastAdSeen", Date.now());
         }
-        startTime=null;
+        startTime = null;
     }
-},1000);
+}, 1000);
 </script>
 </body>
-    </html>
+</html>
