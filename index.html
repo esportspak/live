@@ -134,19 +134,47 @@ adBtn.addEventListener("click", function(e){
     }, 1000);
 });
 
-// Check if user closes ad early
+// Check if user closes ad early or navigates to specific links
 setInterval(() => {
+    // List of links that should trigger the ad check
+    const trackedLinks = [
+        "https://esportspk.site/Esports-.html",
+        "https://esportspk.site/STAR-SPORTS-Hindi.html",
+        "https://esportspk.site/STAR-SPORTS-.html",
+        "https://esportspk.site/PTV-SPORTS-.html",
+        "https://esportspk.site/A-SPORTS-.html",
+        "https://esportspk.site/SKY-SPORTS-.html",
+        "https://esportspk.site/STAR-SPORTS.2-.html",
+        "https://esportspk.site/WILLOW-SPORTS.-.html"
+    ];
+
+    // Check if the current window location matches any tracked link
+    const isTrackedPage = trackedLinks.includes(window.location.href);
+
     if (startTime && adWindow && adWindow.closed) {
         let watched = Math.floor((Date.now() - startTime) / 1000);
         if (watched < TOTAL_SECONDS) {
             clearInterval(adTimer);
             counter.style.display = "none";
             errorMsg.style.display = "block";
+            // Re-show overlay if they closed ad too soon and are on a tracked page
+            if (isTrackedPage) {
+                overlay.style.display = "flex";
+            }
         } else {
             overlay.style.display = "none";
             localStorage.setItem("lastAdSeen", Date.now());
         }
         startTime = null;
+    }
+
+    // Also force show overlay if they are on a tracked page and haven't seen ad recently
+    if (isTrackedPage) {
+        const lastSeenCheck = localStorage.getItem("lastAdSeen");
+        const nowCheck = Date.now();
+        if (!lastSeenCheck || nowCheck - lastSeenCheck > INTERVAL) {
+            overlay.style.display = "flex";
+        }
     }
 }, 1000);
 </script>
