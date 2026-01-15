@@ -10,7 +10,7 @@
     .marquee {
         display: inline-block;
         animation: marquee 65.00s linear infinite;
-        padding-left: 100%; /* Add initial offset */
+        padding-left: 100%;
     }
 
     @keyframes marquee {
@@ -21,65 +21,43 @@
 
 <div class="announcement-bar">
     <div class="marquee">
-          ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner. 
-        
-         ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-    
-          ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-           ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-           ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
+        ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
     </div>
 </div>
-<iframe src="//streamcrichd.com/update/willowcricket.php"""
-    width="100%" height="850px" 
+
+<iframe src="//streamcrichd.com/update/willowcricket.php"
+    width="100%" height="850px"
     sandbox="allow-scripts allow-same-origin allow-modals"
-    marginheight="0" marginwidth="0" scrolling="no" frameborder="0" 
+    scrolling="no" frameborder="0"
     allowfullscreen allow="encrypted-media">
 </iframe>
-</script>
+
 <script type="text/javascript" src="//www.highperformanceformat.com/f9746dfef85e6ec5c7141e4723441071/invoke.js"></script>
 
-<div style="text-align: center;"><br></div>
 <div id="myHeader">
-<div id="http">
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
 
-<div id="player">
-</div>
-<script type="text/javascript">
-jwplayer("player").resize(480, 270);
-    jwplayer('player').setup({
-        file: ',
+<div id="player"></div>
 
-playbackRateControls: [0.75, 1, 1.25, 1.5],
-        title: 'Esports Live ',
-        width: '100%',
-        aspectratio: '16:9',
-        mute: false,
-        repeat: 'true',
-        autostart:true,
-        primary: 'html5',
-        type: 'm38u',
-        setFullscreen: true,
-controls: true,
-showCode: true,
-responsive: true,
-skin: {
-  name: "glow",
-       active: "red",
-       inactive: "",
-       Background: ""
-  }
-    });
+<script>
+jwplayer("player").resize(480, 270);
+jwplayer('player').setup({
+    file: https://starsportseng.pages.dev/index.m3u8',
+    title: 'Esports Live',
+    width: '100%',
+    aspectratio: '16:9',
+    autostart: true,
+    primary: 'html5',
+    controls: true,
+    responsive: true
+});
 </script>
 </div>
 
 <script>
 window.onscroll = function() {myFunction()};
-
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
-
 function myFunction() {
   if (window.pageYOffset >= sticky) {
     header.classList.add("sticky");
@@ -88,63 +66,27 @@ function myFunction() {
   }
 }
 </script>
-<!-- BEGIN: Powered by Supercounters.com -->
-<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script><script type="text/javascript">sc_online_t(1711926,"Users Online","170ddb");</script><br><noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
-</center>
-<!-- END: Powered by Supercounters.com -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Secure Page</title>
-  <script>
-    // iframe block
-    if (window.top !== window.self) {
-      window.top.location = window.self.location;
-    }
 
-    // Disable right-click
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-    }, false);
-
-    // Block F12, Ctrl+Shift+I, Ctrl+U etc.
-    document.addEventListener('keydown', function(e) {
-      // F12
-      if (e.keyCode === 123) {
-        e.preventDefault();
-      }
-      // Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+U
-      if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'u')) {
-        e.preventDefault();
-      }
-    });
-  </script>
-  <style>
-    /* Optional: disable text selection */
-    body {
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-    }
-  </style>
-</head>
-<body>
-  <h1><h1>
-  <p></p>
-</body>
-</html>
 <script>
-  const allowedParent = "https://esportspk.site";
-
-  if (window !== window.top) {
-    // This page is inside an iframe
-    if (document.referrer.startsWith(allowedParent)) {
-      // Allowed domain - do nothing
-    } else {
-      // Not allowed - block content
-      document.body.innerHTML = "<h1>Embedding not allowed from this domain.</h1>";
-    }
+if (window.top !== window.self) {
+  window.top.location = window.self.location;
+}
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
+    e.preventDefault();
   }
+});
 </script>
+
+<script>
+const allowedParent = "https://esportspk.site";
+if (window !== window.top) {
+  if (!document.referrer.startsWith(allowedParent)) {
+    document.body.innerHTML = "<h1>Embedding not allowed</h1>";
+  }
+}
+</script>
+
+<!-- ✅ ONLY ADDED LINE (POPUP) -->
+<script src="/popup.js"></script>
