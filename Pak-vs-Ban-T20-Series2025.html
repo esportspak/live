@@ -1,272 +1,724 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Esports PK</title>
-
-<style>
-/* ===== SLIDER CSS ===== */
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    font-family: Verdana, sans-serif;
-    background: #000;
-    color: #fff;
-}
-
-.mySlides { display: none; position: relative; }
-img { vertical-align: middle; width: 100%; height: auto; }
-
-.slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-}
-
-.dot-container {
-    text-align: center;
-    padding: 10px;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.active {
-    background-color: #717171;
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from { opacity: .4 }
-    to { opacity: 1 }
-}
-
-.button-container {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-.watch-button {
-    padding: 12px 24px;
-    font-size: 18px;
-    color: white;
-    background-color: #ff4500;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.watch-button:hover {
-    background-color: #d63b00;
-}
-
-/* ===== POPUP CSS ===== */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.popup {
-    width: 90%;
-    max-width: 420px;
-    background: #3a3a3a;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.support {
-    color: #ffeb3b;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    background: #a12a2a;
-    color: #fff;
-    padding: 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    display: block;
-    margin: 15px 0;
-    font-weight: bold;
-}
-
-.small {
-    font-size: 13px;
-    color: #ccc;
-}
-
-.green {
-    color: #00ff6a;
-}
-
-.reload {
-    background: #eee;
-    color: #000;
-    padding: 6px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.error {
-    color: red;
-    display: none;
-}
-
-.counter {
-    color: #ffeb3b;
-    font-size: 18px;
-    display: none;
-}
-</style>
-</head>
-
-<body>
-
-<!-- ===== SLIDER HTML ===== -->
-<div class="slideshow-container">
-
-    <div class="mySlides fade">
-        <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/IMG-20260106-WA0014.jpg?v=1767713884">
-        <div class="button-container">
-            <a href="https://esportspk.site/Esports-.html" class="watch-button">Watch Now</a>
-        </div>
-    </div>
-
-    <div class="mySlides fade">
-        <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/IMG-20260106-WA0014.jpg?v=1767713884">
-        <div class="button-container">
-            <a href="https://esportspk.site/Esports-.html" class="watch-button">Watch Now</a>
-        </div>
-    </div>
-</div>
-
-<div class="dot-container">
-    <span class="dot"></span>
-    <span class="dot"></span>
-</div>
-
-<!-- ===== POPUP HTML ===== -->
-<div class="overlay" id="overlay">
-    <div class="popup">
-        <div class="support">We Need Support</div>
-
-        <a href="#" class="btn" id="adBtn">
-            Click Here<br><small>Open 1 Ads Per Day</small>
-        </a>
-
-        <div class="counter" id="counter">20</div>
-
-        <p class="small">
-            1. Click the ads button above.<br>
-            2. Ads will open in your browser.<br>
-            3. Watch ads for more than 20 seconds.<br>
-            4. Return back to the website .
-        </p>
-
-        <p class="green">
-            Without ads, we don’t have enough funds to run this website .
-        </p>
-
-        <p class="error" id="errorMsg">
-            ❌ You must watch the ad for at least 20 seconds.
-        </p>
-
-        <div class="reload" onclick="location.reload()">Reload</div>
-    </div>
-</div>
-
-<!-- ===== SLIDER JS ===== -->
-<script>
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-
-    setTimeout(showSlides, 2000);
-}
-</script>
-
-<!-- ===== POPUP JS ===== -->
-<script>
-const AD_LINK = "https://otieu.com/4/10457378";
-const SITE_LINK = "https://esportspk.site/";
-const TOTAL_SECONDS = 20;
-const INTERVAL = 5 * 60 * 1000;
-
-const overlay = document.getElementById("overlay");
-const adBtn = document.getElementById("adBtn");
-const errorMsg = document.getElementById("errorMsg");
-const counter = document.getElementById("counter");
-
-const lastSeen = localStorage.getItem("lastAdSeen");
-const now = Date.now();
-
-if (lastSeen && now - lastSeen < INTERVAL) {
-    overlay.style.display = "none";
-}
-
-adBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    errorMsg.style.display = "none";
-    counter.style.display = "block";
-
-    window.open(AD_LINK, "_blank");
-
-    let secondsLeft = TOTAL_SECONDS;
-    counter.textContent = secondsLeft;
-
-    const timer = setInterval(() => {
-        secondsLeft--;
-        counter.textContent = secondsLeft;
-
-        if (secondsLeft <= 0) {
-            clearInterval(timer);
-            localStorage.setItem("lastAdSeen", Date.now());
-            window.location.href = SITE_LINK;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23000000;stop-opacity:1' /><stop offset='100%' style='stop-color:%231e3a8a;stop-opacity:1' /></linearGradient></defs><rect x='5' y='5' width='50' height='50' rx='10' fill='url(%23grad)'/><text x='30' y='38' text-anchor='middle' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='white'>CA</text></svg>">
+    <title>CineArena.Live - Watch Live Cricket & Sports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Modern Color Palette */
+            --primary-bg: #0f0f1a;      /* Deep dark blue-black */
+            --secondary-bg: #1a1a2e;    /* Card/Module BG */
+            --accent-color: #ff4757;    /* Vibrant red accent */
+            --accent-secondary: #2ed573; /* Green for active elements */
+            --text-primary: #ffffff;    /* White Text */
+            --text-secondary: #b0b0c0;  /* Subdued Text */
+            --time-color: #ffa502;      /* Gold/Time Highlight */
+            --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            --transition-speed: 0.3s;
         }
-    }, 1000);
-});
-</script>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-</body>
-</html>
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, #151528 100%);
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), var(--time-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        /* Telegram icon only */
+        .telegram-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #0088cc, #005c99);
+        }
+
+        .telegram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content Container */
+        .main-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+            overflow: hidden;
+            padding-bottom: 15px;
+        }
+
+        /* MOBILE: Player Container */
+        .player-container {
+            width: 100%;
+            background-color: var(--secondary-bg);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            flex-shrink: 0;
+        }
+
+        .player-header {
+            background: linear-gradient(90deg, var(--secondary-bg), #252540);
+            padding: 10px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+
+        .player-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .live-badge {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        .current-match {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+
+        /* Player with proper aspect ratio */
+        .player {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            position: relative;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            border: none;
+            display: block;
+        }
+
+        /* Channel Selector */
+        .channel-selector {
+            width: 100%;
+            background-color: var(--secondary-bg);
+            border-radius: 0;
+            padding: 12px 10px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .selector-title {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 5px;
+        }
+
+        .selector-title i {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+        }
+
+        .channels-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 8px;
+            padding-bottom: 5px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+
+        .channels-container::-webkit-scrollbar {
+            height: 3px;
+        }
+        .channels-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .channels-container::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        .channel-card {
+            flex: 0 0 auto;
+            width: 70px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+        }
+
+        .channel-card:hover {
+            transform: translateY(2px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .channel-card.active {
+            border-color: var(--accent-secondary);
+            background: rgba(46, 213, 115, 0.1);
+        }
+
+        .channel-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 6px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background-color: white;
+            padding: 2px;
+        }
+
+        .channel-name {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        /* Match List - SCROLLABLE AREA */
+        .matches-section {
+            width: 100%;
+            background-color: var(--secondary-bg);
+            border-radius: 0;
+            padding: 12px 10px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+            margin-bottom: 10px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 0 5px;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+
+        .refresh-btn {
+            background: rgba(255, 71, 87, 0.2);
+            color: var(--accent-color);
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all var(--transition-speed);
+            flex-shrink: 0;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255, 71, 87, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Scrollable matches container */
+        .matches-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            overflow-y: auto;
+            flex: 1;
+            padding-right: 2px;
+            max-height: calc(100vh - 400px);
+            min-height: 200px;
+        }
+
+        .matches-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        .matches-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .matches-container::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        .match-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .match-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .match-card.active {
+            border-color: var(--accent-color);
+            background: rgba(255, 71, 87, 0.1);
+        }
+
+        .match-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            padding: 3px;
+            background-color: white;
+            flex-shrink: 0;
+        }
+
+        .match-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .match-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .match-time {
+            font-size: 0.75rem;
+            color: var(--time-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .match-arrow {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+            flex-shrink: 0;
+        }
+
+        .match-card:hover .match-arrow {
+            opacity: 1;
+        }
+
+        /* DESKTOP LAYOUT - Two columns - FIXED FOR EQUAL MARGINS */
+        @media (min-width: 768px) {
+            .main-container {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 25px;
+                padding: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-bottom: 20px;
+                flex: 1;
+                overflow-y: auto;
+            }
+            
+            .player-content-wrapper {
+                flex: 0 0 auto;
+                width: 500px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                /* Remove sticky positioning for equal margins */
+                position: static;
+                top: auto;
+                /* Add margin to create equal spacing from top */
+                margin-top: 20px;
+            }
+            
+            .player-container {
+                width: 500px;
+                border-radius: 12px;
+                margin-top: 0;
+            }
+            
+            .player-header {
+                padding: 12px 15px;
+            }
+            
+            .player-title {
+                font-size: 1rem;
+            }
+            
+            .current-match {
+                font-size: 0.8rem;
+                max-width: 200px;
+            }
+            
+            .player {
+                height: 281px;
+                padding-bottom: 0;
+            }
+            
+            .channel-selector {
+                width: 500px;
+                border-radius: 12px;
+                padding: 15px;
+            }
+            
+            .selector-title {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+            
+            .channel-card {
+                width: 80px;
+                padding: 12px 8px;
+            }
+            
+            .channel-logo {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .channel-name {
+                font-size: 0.7rem;
+            }
+            
+            .matches-section {
+                flex: 1;
+                border-radius: 12px;
+                padding: 15px;
+                min-height: auto;
+                max-height: none;
+                margin-bottom: 0;
+                /* Add same top margin as player-content-wrapper */
+                margin-top: 20px;
+            }
+            
+            .matches-container {
+                max-height: calc(100vh - 200px);
+                min-height: 400px;
+            }
+            
+            .match-card {
+                padding: 15px;
+                border-radius: 10px;
+            }
+            
+            .match-icon {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .match-title {
+                font-size: 1rem;
+                white-space: normal;
+            }
+        }
+
+        /* LARGE DESKTOP LAYOUT */
+        @media (min-width: 1200px) {
+            .player-content-wrapper {
+                width: 600px;
+                margin-top: 25px;
+            }
+            
+            .player-container {
+                width: 600px;
+            }
+            
+            .player {
+                height: 337px;
+            }
+            
+            .channel-selector {
+                width: 600px;
+            }
+            
+            .current-match {
+                max-width: 250px;
+            }
+            
+            .matches-section {
+                margin-top: 25px;
+            }
+            
+            .match-card {
+                padding: 18px;
+            }
+            
+            .matches-container {
+                max-height: calc(100vh - 230px);
+            }
+        }
+
+        /* Loading State */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 10px;
+            gap: 12px;
+            width: 100%;
+            height: 100%;
+            flex: 1;
+        }
+
+        .spinner {
+            width: 35px;
+            height: 35px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 767px) {
+            .header {
+                padding: 10px 12px;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.3rem;
+            }
+            
+            .telegram-link {
+                width: 34px;
+                height: 34px;
+                font-size: 1.1rem;
+            }
+            
+            .main-container {
+                gap: 12px;
+                padding: 0;
+            }
+            
+            .player-header {
+                padding: 8px 10px;
+            }
+            
+            .player-title {
+                font-size: 0.9rem;
+            }
+            
+            .live-badge {
+                font-size: 0.65rem;
+                padding: 2px 6px;
+            }
+            
+            .current-match {
+                font-size: 0.7rem;
+                max-width: 130px;
+            }
+            
+            .selector-title {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+            }
+            
+            .section-header {
+                margin-bottom: 10px;
+            }
+            
+            .section-title {
+                font-size: 0.95rem;
+            }
+            
+            .refresh-btn {
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
+            
+            .channel-card {
+                width: 65px;
+                padding: 8px 5px;
+            }
+            
+            .channel-logo {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .match-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .match-title {
+                font-size: 0.85rem;
+            }
+            
+            .match-time {
+                font-size: 0.7rem;
+            }
+            
+            /* Better scrollable area on mobile */
+            .matches-container {
+                max-height: calc(100vh - 380px);
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 8px 10px;
+            }
+            
+            .logo-text {
+                font-size: 1rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.2rem;
+            }
+            
+            .telegram-link {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+            
+            .player-title {
+                font-size: 0.85rem;
+            }
+            
+            .live-badge {
+                font-size: 0.6rem;
+            }
+            
+            .current-match {
+        
