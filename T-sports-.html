@@ -29,9 +29,19 @@
 
 <div id="player"></div>
 
+<!-- 🔥 TOKEN GENERATOR -->
+<script>
+function generateToken() {
+  const expiry = Math.floor(Date.now() / 1000) + 300; // Token valid 5 min
+  return expiry + "." + btoa("esports-secret-key"); // Secret same as Worker
+}
+
+const token = generateToken();
+</script>
+
 <script>
 jwplayer("player").setup({
-    file: "https://stream-esports.workers.dev", // 🔒 HIDDEN
+    file: "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token, // 🔒 Tokenized URL
     title: "Esports Live",
     width: "100%",
     aspectratio: "16:9",
@@ -40,8 +50,7 @@ jwplayer("player").setup({
     controls: true,
     responsive: true
 });
-    </script>
-</div>
+</script>
 
 <script>
 window.onscroll = function() {myFunction()};
@@ -62,7 +71,7 @@ if (window.top !== window.self) {
 }
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
+  if (e.keyCode === 123 || (e.ctrlKey && (e.ctrlKey && (e.key === 'u' || e.key === 'I')))) {
     e.preventDefault();
   }
 });
@@ -77,5 +86,5 @@ if (window !== window.top) {
 }
 </script>
 
-<!-- ✅ ONLY ADDED LINE (POPUP) -->
+<!-- ✅ POPUP SCRIPT -->
 <script src="/popup.js"></script>
