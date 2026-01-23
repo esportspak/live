@@ -28,31 +28,24 @@
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
 <div id="player"></div>
 
-<!-- 🔥 WORKING TOKEN GENERATOR -->
 <script>
+// 🔹 Generate token immediately
 function generateToken() {
-    const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min token
-    // Encode secret safely
-    const secret = "esports-secret-key"; 
-    return `${expiry}.${btoa(secret)}`;
+  const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min
+  return expiry + "." + btoa("esports-secret-key");  // Must match Worker secret
 }
 
-// Generate token
 const token = generateToken();
 
-// Construct final Worker URL with token
-const workerURL = "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token;
-
-// JWPlayer setup
+// 🔹 JWPlayer setup
 jwplayer("player").setup({
-    file: workerURL,
-    title: "Esports Live",
-    width: "100%",
-    aspectratio: "16:9",
-    autostart: true,
-    primary: "html5",
-    controls: true,
-    responsive: true
+  file: "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token,
+  width: "100%",
+  aspectratio: "16:9",
+  autostart: true,
+  primary: "html5",
+  controls: true,
+  type: "hls"  // Important for m3u8
 });
 </script>
 
