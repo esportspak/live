@@ -30,58 +30,24 @@
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
 
 <script>
-// ==============================
-// CONFIG
-// ==============================
-const WORKER_URL = "https://dark-snowflake-27df.esportspk-com.workers.dev/"; // Your Cloudflare Worker URL
-const SECRET = "esports-secret-key"; // Must match Worker secret
-const TOKEN_REFRESH_INTERVAL = 240000; // 4 minutes = 240000ms (before 5 min expiry)
+const WORKER_URL = "https://empty-river-cb26.esportspk-com.workers.dev";
 
-// ==============================
-// FUNCTION: Generate Token
-// ==============================
 function generateToken() {
-  const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min expiry
-  return expiry + "." + btoa(SECRET);
+  const expiry = Math.floor(Date.now() / 1000) + 300;
+  return expiry + "." + btoa("esports-secret-key");
 }
 
-// ==============================
-// FUNCTION: Setup JWPlayer
-// ==============================
-let player;
+const token = generateToken();
 
-function setupPlayer() {
-  const token = generateToken();
-  const fileURL = WORKER_URL + "?token=" + token;
-
-  if (!player) {
-    // First time setup
-    player = jwplayer("player");
-  }
-
-  player.setup({
-    file: fileURL,
-    width: "100%",
-    aspectratio: "16:9",
-    autostart: true,
-    controls: true,
-    primary: "html5",
-    type: "hls"
-  });
-}
-
-// ==============================
-// INITIAL PLAYER SETUP
-// ==============================
-setupPlayer();
-
-// ==============================
-// AUTO REFRESH TOKEN EVERY 4 MINUTES
-// ==============================
-setInterval(() => {
-  player.stop();        // Stop current playback
-  setupPlayer();        // Re-setup player with new token
-}, TOKEN_REFRESH_INTERVAL);
+jwplayer("player").setup({
+  file: WORKER_URL + "?token=" + token,
+  width: "100%",
+  aspectratio: "16:9",
+  autostart: true,
+  controls: true,
+  primary: "html5",
+  type: "hls"
+});
 </script>
 
 <script>
