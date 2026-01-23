@@ -24,13 +24,9 @@
         ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
     </div>
 </div>
-
-<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
-<div id="player"></div>
-
 <script>
 function generateToken() {
-  const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min
+  const expiry = Math.floor(Date.now() / 1000) + 300;
   return expiry + "." + btoa("esports-secret-key");
 }
 
