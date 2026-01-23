@@ -29,49 +29,21 @@
 <div id="player"></div>
 
 <script>
-// 🔹 Generate token immediately
 function generateToken() {
   const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min
-  return expiry + "." + btoa("esports-secret-key");  // Must match Worker secret
+  return expiry + "." + btoa("esports-secret-key");
 }
 
 const token = generateToken();
 
-// 🔹 JWPlayer setup
 jwplayer("player").setup({
   file: "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token,
   width: "100%",
   aspectratio: "16:9",
   autostart: true,
-  primary: "html5",
   controls: true,
-  type: "hls"  // Important for m3u8
-});
-</script>
-
-<script>
-window.onscroll = function() {myFunction()};
-var header = document.getElementById("myHeader");
-var sticky = header ? header.offsetTop : 0;
-function myFunction() {
-  if (!header) return;
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
-
-<script>
-if (window.top !== window.self) {
-  window.top.location = window.self.location;
-}
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
-    e.preventDefault();
-  }
+  primary: "html5",
+  type: "hls"
 });
 </script>
 
