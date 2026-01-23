@@ -24,23 +24,64 @@
         ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
     </div>
 </div>
+
+<div id="player"></div>
+
+<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+
 <script>
+// ==============================
+// CONFIG
+// ==============================
+const WORKER_URL = "https://dark-snowflake-27df.esportspk-com.workers.dev/"; // Your Cloudflare Worker URL
+const SECRET = "esports-secret-key"; // Must match Worker secret
+const TOKEN_REFRESH_INTERVAL = 240000; // 4 minutes = 240000ms (before 5 min expiry)
+
+// ==============================
+// FUNCTION: Generate Token
+// ==============================
 function generateToken() {
-  const expiry = Math.floor(Date.now() / 1000) + 300;
-  return expiry + "." + btoa("esports-secret-key");
+  const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min expiry
+  return expiry + "." + btoa(SECRET);
 }
 
-const token = generateToken();
+// ==============================
+// FUNCTION: Setup JWPlayer
+// ==============================
+let player;
 
-jwplayer("player").setup({
-  file: "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token,
-  width: "100%",
-  aspectratio: "16:9",
-  autostart: true,
-  controls: true,
-  primary: "html5",
-  type: "hls"
-});
+function setupPlayer() {
+  const token = generateToken();
+  const fileURL = WORKER_URL + "?token=" + token;
+
+  if (!player) {
+    // First time setup
+    player = jwplayer("player");
+  }
+
+  player.setup({
+    file: fileURL,
+    width: "100%",
+    aspectratio: "16:9",
+    autostart: true,
+    controls: true,
+    primary: "html5",
+    type: "hls"
+  });
+}
+
+// ==============================
+// INITIAL PLAYER SETUP
+// ==============================
+setupPlayer();
+
+// ==============================
+// AUTO REFRESH TOKEN EVERY 4 MINUTES
+// ==============================
+setInterval(() => {
+  player.stop();        // Stop current playback
+  setupPlayer();        // Re-setup player with new token
+}, TOKEN_REFRESH_INTERVAL);
 </script>
 
 <script>
