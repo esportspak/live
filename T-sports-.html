@@ -1,22 +1,22 @@
 <style>
-    .announcement-bar {
-        color: black;
-        padding: 10px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-    }
+.announcement-bar {
+    color: black;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
 
-    .marquee {
-        display: inline-block;
-        animation: marquee 65.00s linear infinite;
-        padding-left: 100%;
-    }
+.marquee {
+    display: inline-block;
+    animation: marquee 65s linear infinite;
+    padding-left: 100%;
+}
 
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
 </style>
 
 <div class="announcement-bar">
@@ -26,22 +26,26 @@
 </div>
 
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
-
 <div id="player"></div>
 
-<!-- 🔥 TOKEN GENERATOR -->
+<!-- 🔥 WORKING TOKEN GENERATOR -->
 <script>
 function generateToken() {
-  const expiry = Math.floor(Date.now() / 1000) + 300; // Token valid 5 min
-  return expiry + "." + btoa("esports-secret-key"); // Secret same as Worker
+    const expiry = Math.floor(Date.now() / 1000) + 300; // 5 min token
+    // Encode secret safely
+    const secret = "esports-secret-key"; 
+    return `${expiry}.${btoa(secret)}`;
 }
 
+// Generate token
 const token = generateToken();
-</script>
 
-<script>
+// Construct final Worker URL with token
+const workerURL = "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token;
+
+// JWPlayer setup
 jwplayer("player").setup({
-    file: "https://empty-river-cb26.esportspk-com.workers.dev?token=" + token, // 🔒 Tokenized URL
+    file: workerURL,
     title: "Esports Live",
     width: "100%",
     aspectratio: "16:9",
@@ -55,8 +59,9 @@ jwplayer("player").setup({
 <script>
 window.onscroll = function() {myFunction()};
 var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+var sticky = header ? header.offsetTop : 0;
 function myFunction() {
+  if (!header) return;
   if (window.pageYOffset >= sticky) {
     header.classList.add("sticky");
   } else {
@@ -71,7 +76,7 @@ if (window.top !== window.self) {
 }
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 123 || (e.ctrlKey && (e.ctrlKey && (e.key === 'u' || e.key === 'I')))) {
+  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
     e.preventDefault();
   }
 });
