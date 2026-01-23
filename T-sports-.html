@@ -1,22 +1,22 @@
 <style>
-.announcement-bar {
-    color: black;
-    padding: 10px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-}
+    .announcement-bar {
+        color: black;
+        padding: 10px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+    }
 
-.marquee {
-    display: inline-block;
-    animation: marquee 65s linear infinite;
-    padding-left: 100%;
-}
+    .marquee {
+        display: inline-block;
+        animation: marquee 65.00s linear infinite;
+        padding-left: 100%;
+    }
 
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
 </style>
 
 <div class="announcement-bar">
@@ -25,28 +25,57 @@
     </div>
 </div>
 
-<div id="player"></div>
+<iframe src="https://dry-glade-05b8.esportspk-com.workers.dev/"
+    width="100%" height="850px"
+    sandbox="allow-scripts allow-same-origin allow-modals"
+    scrolling="no" frameborder="0"
+    allowfullscreen allow="encrypted-media">
+</iframe>
 
+<script type="text/javascript" src="//www.highperformanceformat.com/f9746dfef85e6ec5c7141e4723441071/invoke.js"></script>
+
+<div id="myHeader">
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
 
+<div id="player"></div>
+
 <script>
-const WORKER_URL = "https://jolly-scene-8fc2.esportspk-com.workers.dev/";
+jwplayer("player").resize(480, 270);
+jwplayer('player').setup({
+    file: https://starsportseng.pages.dev/index.m3u8',
+    title: 'Esports Live',
+    width: '100%',
+    aspectratio: '16:9',
+    autostart: true,
+    primary: 'html5',
+    controls: true,
+    responsive: true
+});
+</script>
+</div>
 
-function generateToken() {
-  const expiry = Math.floor(Date.now() / 1000) + 300;
-  return expiry + "." + btoa("esports-secret-key");
+<script>
+window.onscroll = function() {myFunction()};
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
 }
+</script>
 
-const token = generateToken();
-
-jwplayer("player").setup({
-  file: WORKER_URL + "?token=" + token,
-  width: "100%",
-  aspectratio: "16:9",
-  autostart: true,
-  controls: true,
-  primary: "html5",
-  type: "hls"
+<script>
+if (window.top !== window.self) {
+  window.top.location = window.self.location;
+}
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
+    e.preventDefault();
+  }
 });
 </script>
 
@@ -59,5 +88,5 @@ if (window !== window.top) {
 }
 </script>
 
-<!-- ✅ POPUP SCRIPT -->
+<!-- ✅ ONLY ADDED LINE (POPUP) -->
 <script src="/popup.js"></script>
