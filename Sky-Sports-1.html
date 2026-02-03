@@ -28,38 +28,100 @@
 
 <div id="myHeader">
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Cric stream Favicon.jpg">
+    <title>TG-@cric_stream</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://xyzts.pages.dev/style.css">
+    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
 
-<div id="player"></div>
+    <style>
+      body {
+        margin: 0px;
+        padding-top: 5px;
+        font-family: Arial, sans-serif;
+        width: 100%;
+      }
+      #jwplayerDiv {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+    </style>
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Cric stream Favicon.jpg">
+    <title>TG-@cric_stream</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://xyzts.pages.dev/style.css">
+    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
 
-<script>
-jwplayer("player").resize(480, 270);
-jwplayer('player').setup({
-    file: 'https://crichd.esportspk-com.workers.dev/live/sky1nz.m3u8',
-    title: 'Esports Live',
-    width: '100%',
-    aspectratio: '16:9',
-    autostart: true,
-    mute: false,
-    primary: 'html5',
-    controls: true,
-    responsive: true
-});
-</script>
-</div>
+    <style>
+      body {
+        margin: 0px;
+        padding-top: 5px;
+        font-family: Arial, sans-serif;
+        width: 100%;
+      }
+      #jwplayerDiv {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+    </style>
+  </head>
 
-<script>
-window.onscroll = function() {myFunction()};
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
+  <body>
 
+    <div id="jwplayerDiv"></div>
+
+    <script type="text/javascript">
+      var player = jwplayer("jwplayerDiv").setup({
+        file: "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/dash/enc/rlisfyx9vd/out/v1/61b8f61b22ac469297cbd4f1224f0ec8/cenc.mpd",
+        type: "dash",
+        position: "bottom",
+
+        drm: {
+          clearkey: {
+            keys: [
+              {
+                keyId: "f159241d40e659d58e81bc17ca30da31",
+                key: "6b7fe24f7a16343bd447b0b30f68b7b2"
+              },
+              {
+                keyId: "b770d5b4bb6b594daf985845aae9aa5f",
+                key: "b0cb46d2d31cf044bc73db71e9865f6f"
+              }
+            ]
+          }
+        },
+
+        autostart: true,
+        mute: true,
+        image: "WhatsApp Image 2025-02-22 at 5.19.53 PM.jpeg"
+      });
+
+      player.on('play', function () {
+        player.setMute(false);
+      });
+    </script>
+
+    <center>
+      <script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script>
+      <script type="text/javascript">
+        sc_online_t(1707487,"Users Online","170ddb");
+      </script>
+    </center>
+
+  </body>
+</html>
 <script>
 if (window.top !== window.self) {
   window.top.location = window.self.location;
