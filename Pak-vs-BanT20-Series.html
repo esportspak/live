@@ -1,67 +1,332 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="Cric stream Favicon.jpg">
-    <title>TG-@cric_stream</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://xyzts.pages.dev/style.css">
-    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+    <meta name="keywords" content="video, streaming, cine arena, cine-arena, sports">
+
+    <meta name="description" content="Cine Arena live streaming - Watch Sports for free.">
+
+    <title>Esports</title>
+
+    <link rel="icon" href="favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-      body {
-        margin: 0px;
-        padding-top: 5px;
-        font-family: Arial, sans-serif;
-        width: 100%;
-      }
-      #jwplayerDiv {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
+
+
+
+	.sticky-footer {
+
+           position: fixed;
+
+           bottom: 0;
+
+           width: 100%;
+
+           background: #fff;
+
+           color: white;
+
+           text-align: center;
+
+           padding: 0px;
+
+	}
+
     </style>
-  </head>
 
-  <body>
+</head>
 
-    <div id="jwplayerDiv"></div>
+<body class="bg-gray-100 text-gray-900 transition-all">
 
-    <script type="text/javascript">
-  var player = jwplayer("jwplayerDiv").setup({
-    file: "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/dash/enc/rlisfyx9vd/out/v1/61b8f61b22ac469297cbd4f1224f0ec8/cenc.mpd",
-    type: "dash",
-    position: "bottom",
 
-    drm: {
-      clearkey: {
-        keyId: "f159241d40e659d58e81bc17ca30da31",
-        key: "6b7fe24f7a16343bd447b0b30f68b7b2"
-      },
-      // second key (multi-key support)
-      keys: [{
-        keyId: "b770d5b4bb6b594daf985845aae9aa5f",
-        key: "b0cb46d2d31cf044bc73db71e9865f6f"
-      }]
-    },
 
-    autostart: true,
-    mute: true,
-    image: "WhatsApp Image 2025-02-22 at 5.19.53 PM.jpeg"
-  });
+    <!-- Header -->
 
-  player.on('play', function () {
-    player.setMute(false);
-  });
+    <header class="p-4 bg-white-900 text-white text-center text-2xl font-bold">
+
+       <a href="https://esportspk.site/"> <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/esports.webp?v=1743971634" class="h-10 md:h-10 lg:h-10 mx-auto"></a>
+
+    </header>
+
+
+
+    <!-- Search & Dark Mode Toggle -->
+
+    <div class="flex justify-center items-center p-4 gap-4">
+
+        <input type="search" id="search" placeholder="Search Channels..." 
+
+               class="px-4 py-2 rounded border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+        <button id="theme-toggle" class="px-4 py-2 bg-gray-100 text-black rounded border border-gray-400">🌙</button>
+
+    </div>
+
+	<h2 style="text-align: center;"><b>ICC T20 WORLD CUP2026</b></h2>
+
+
+    <!-- Channel Grid -->
+
+    <div id="channel-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4">
+
+
+
+	
+
+        <a href="https://esportspk.site/STAR-SPORTS-Hindi.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/download_9.jpg?v=1756413265" alt="Star sports Hindi " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">STAR SPORTS (Hindi)</p>
+
+        </a> 
+	<a href="https://esportspk.site/STAR-SPORTS-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/download_9.jpg?v=1756413265" alt="Star sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">STAR SPORTS (English)</p>
+
+        </a>
+
+        
+
+        <a href="https://esportspk.site/PTV-SPORTS-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/PTV_Sports.png?v=1744143136" alt="Ptv Sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">PTV SPORTS</p>
+
+        </a>
+
+
+
+	<a href="https://esportspk.site/A-SPORTS-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/A-Sports-Logo-final.webp?v=1743891734" alt="A Sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">A SPORTS</p>
+
+	</a>
+	<a href="https://esportspk.site/SKY-SPORTS-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/download_11.jpg?v=1756413274" alt="Sky Cricket " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">SKY SPORTS</p>
+
+	</a>
+<a href="https://esportspk.site/STAR-SPORTS.2-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/download_9.jpg?v=1756413265" alt="Star sports 2" class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">STAR SPORTS 2</p>
+
+      </a>
+      <a href="https://esportspk.site/WILLOW-SPORTS.-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/willowsports.jpg?v=1744461773" alt="Willow Sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">Willow  SPORTS</p>
+
+      </a>
+      <a href="https://esportspk.site/WILLOW_XTRA.SPORTS-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/willowsports.jpg?v=1744461773" alt="Willow Xtra " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">Willow xtra</p>
+
+      </a>
+         <a href="https://esportspk.site/Ten-Sports-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/1631301306325.jpg?v=1743884021" alt="Ten sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">TEN SPORTS  </p>
+
+        </a> 
+         <a href="https://esportspk.site/T-sports-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/t-sports.jpg?v=1744374324" alt="T Sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">T SPORTS </p>
+
+        </a> 
+         <a href="https://esportspk.site/Tnt-sports-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/images_3.png?v=1768650007" alt="Tnt Sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">TNT SPORTS </p>
+
+        </a> 
+         <a href="https://esportspk.site/Fan-code-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/images_3_0efe7c46-f03a-41e0-92d6-c94692d07eec.png?v=1770121859" alt="IPL (Hindi)" class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">Fan code  </p>
+
+        </a>
+        <a href="https://esportspk.site/Cric-Buzz-1.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/images.png?v=1769971859" alt="Cric buzz 1" class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">Cric Buzz1  </p>
+
+      </a>
+        <a href="https://esportspk.site/Cric-Buzz-2.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/images.png?v=1769971859" alt="Cric buzz 2" class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">Cric Buzz 2  </p>
+
+      </a>
+        <a href="https://esportspk.site/Prime-Sports-.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/images_13.jpg?v=1770121991" alt="Prime sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">Prime sports  </p>
+
+      </a>
+        <a href="https://esportspk.site/Sony-Sports.html" class="channel-card block p-4 border border-gray-200 rounded shadow text-center transition-all">
+
+            <img src="https://cdn.shopify.com/s/files/1/0684/1643/8455/files/Sony_Sports_Network_svg.png?v=1744122414" alt="Sony Sports " class="w-20 h-20 mx-auto">
+
+            <p class="mt-2 font-semibold">SONY SPORTS  </p>
+
+      </a>
+    </div>
+
+
+
+    <!-- Footer 
+
+    <footer class="p-4 bg-gray-800 text-white text-center mt-8" style="position: fixed; left:0; bottom:0; width:100%; ">
+
+        2025 CineArena.live All rights reserved.
+
+    </footer>
+
+	-->
+
+
+
+    <script>
+
+        // Dark Mode Toggle with Local Storage
+
+        const toggleButton = document.getElementById('theme-toggle');
+
+        const body = document.body;
+
+        const cards = document.querySelectorAll('.channel-card');
+
+
+
+        function applyDarkMode(enable) {
+
+            if (enable) {
+
+                body.classList.add('dark');
+
+                body.classList.replace('bg-gray-100', 'bg-gray-900');
+
+                body.classList.replace('text-gray-900', 'text-gray-200');
+
+                cards.forEach(card => {
+
+                    card.classList.replace('bg-white', 'bg-gray-800');
+
+                    card.classList.replace('text-gray-900', 'text-gray-200');
+
+                });
+
+                toggleButton.textContent = "☀️";
+
+                localStorage.setItem('dark-mode', 'enabled');
+
+            } else {
+
+                body.classList.remove('dark');
+
+                body.classList.replace('bg-gray-900', 'bg-gray-100');
+
+                body.classList.replace('text-gray-200', 'text-gray-900');
+
+                cards.forEach(card => {
+
+                    card.classList.replace('bg-gray-800', 'bg-white');
+
+                    card.classList.replace('text-gray-200', 'text-gray-900');
+
+                });
+
+                toggleButton.textContent = "🌙";
+
+                localStorage.setItem('dark-mode', 'disabled');
+
+            }
+
+        }
+
+
+
+        // Load theme from localStorage
+
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+
+            applyDarkMode(true);
+
+        }
+
+
+
+        toggleButton.addEventListener('click', () => {
+
+            applyDarkMode(!body.classList.contains('dark'));
+
+        });
+
+
+
+        // Real-Time Search
+
+        document.getElementById('search').addEventListener('input', function() {
+
+            let searchValue = this.value.toLowerCase();
+
+            document.querySelectorAll('.channel-card').forEach(card => {
+
+                let name = card.querySelector('p').textContent.toLowerCase();
+
+                card.style.display = name.includes(searchValue) ? "block" : "none";
+
+            });
+
+        });
+
     </script>
 
-    <center>
-      <script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script>
-      <script type="text/javascript">
-        sc_online_t(1707487,"Users Online","170ddb");
-      </script>
-    </center>
 
-  </body>
+
+
+
+<!--Adsterra-->
+
+    
+
+   
+
+	<br><br><br><br><br><br>
+
+
+
+</body>
+
 </html>
