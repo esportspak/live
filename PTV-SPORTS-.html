@@ -4,37 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #000; }
-        .announcement-bar {
-            color: white; /* Black se white kiya taaki black background pe nazar aaye */
-            padding: 10px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            background: #222;
+        /* Is se extra space bilkul khatam ho jayegi */
+        html, body { 
+            margin: 0; 
+            padding: 0; 
+            background: transparent; 
+            height: auto; 
+            overflow: hidden; 
         }
 
-        .marquee {
-            display: inline-block;
-            animation: marquee 65s linear infinite;
-            padding-left: 100%;
+        #player { 
+            width: 100%; 
+            /* Video ka background black hi rehta hai */
+            background: #000; 
         }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-        
-        #player { width: 100%; }
     </style>
 </head>
 <body>
-
-    <div class="announcement-bar">
-        <div class="marquee">
-            ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-        </div>
-    </div>
 
     <div id="player"></div>
 
