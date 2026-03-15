@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; background: #000; }
+        .announcement-bar {
+            color: white; /* Black se white kiya taaki black background pe nazar aaye */
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background: #222;
+        }
 
+        .marquee {
+            display: inline-block;
+            animation: marquee 65s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        #player { width: 100%; }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        <div class="marquee">
+            ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
+        </div>
+    </div>
+
+    <div id="player"></div>
+
+    <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+    <script>
+        jwplayer("player").setup({
+            file: 'https://taimoor.pro.bd/live/main.php?r=https://esportslivepk.site&o=https://esportslivepk.site&url=https://taimoor.pro.bd/live/crichd/ptvpk.m3u8',
+            title: 'Esports Live',
+            width: '100%',
+            aspectratio: '16:9',
+            autostart: true,
+            mute: false,
+            primary: 'html5',
+            controls: true,
+            responsive: true
+        });
+    </script>
+
+</body>
+</html>
