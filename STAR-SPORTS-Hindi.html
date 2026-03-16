@@ -1,28 +1,44 @@
+<div style="text-align: center;"><br /></div>
 <div id="myHeader">
+<div id="http">
 <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
 
-<div id="player"></div>
-
-<script>
+<div id="player">
+</div>
+<script type="text/javascript">
 jwplayer("player").resize(480, 270);
-jwplayer('player').setup({
-    file: 'https://crichd-879.esportspk-site.workers.dev/live/starhindi.m3u8',
-    title: 'Esports Live',
-    width: '100%',
-    aspectratio: '16:9',
-    autostart: true,
-    mute: false,
-    primary: 'html5',
-    controls: true,
-    responsive: true
-});
+    jwplayer('player').setup({
+        file: 'https://taimoor.pro.bd/live/main.php?r=https://esportslivepk.site&o=https://esportslivepk.site&url=https://taimoor.pro.bd/live/crichd/starhindi.m3u8',
+
+playbackRateControls: [0.75, 1, 1.25, 1.5],
+        title: 'Esports Live ',
+        width: '100%',
+        aspectratio: '16:9',
+        mute: false,
+        repeat: 'true',
+        autostart:true,
+        primary: 'html5',
+        type: 'm38u',
+        setFullscreen: true,
+controls: true,
+showCode: true,
+responsive: true,
+skin: {
+  name: "glow",
+       active: "white",
+       inactive: "",
+       Background: ""
+  }
+    });
 </script>
 </div>
-
+</div>
 <script>
 window.onscroll = function() {myFunction()};
+
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
+
 function myFunction() {
   if (window.pageYOffset >= sticky) {
     header.classList.add("sticky");
@@ -31,27 +47,3 @@ function myFunction() {
   }
 }
 </script>
-
-<script>
-if (window.top !== window.self) {
-  window.top.location = window.self.location;
-}
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
-    e.preventDefault();
-  }
-});
-</script>
-
-<script>
-const allowedParent = "https://esportspk.site";
-if (window !== window.top) {
-  if (!document.referrer.startsWith(allowedParent)) {
-    document.body.innerHTML = "<h1>Embedding not allowed</h1>";
-  }
-}
-</script>
-
-<!-- ✅ ONLY ADDED LINE (POPUP) -->
-<script src="/popup.js"></script>
