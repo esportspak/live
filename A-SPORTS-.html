@@ -1,91 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Esports PK - Live Player</title>
-    <style>
-        body { margin: 0; padding: 0; background: white; font-family: Arial, sans-serif; text-align: center; }
-        .announcement-bar { background: #f1f1f1; color: black; padding: 10px 0; overflow: hidden; width: 100%; position: relative; }
-        .marquee { display: inline-block; white-space: nowrap; padding-left: 100%; animation: marquee 25s linear infinite; font-size: 14px; font-weight: bold; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-        #player-wrapper { width: 100%; background: #000; margin: auto; }
-        .player-btn { background: #ff8c00; color: white !important; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; margin: 20px auto; display: inline-block; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    </style>
-</head>
-<body>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+  
+  <iframe 
+    src="https://taimoor.pro.bd/live/crichd/play.php?id=asportshd" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    allowfullscreen="true" 
+    scrolling="no">
+  </iframe>
 
-<div class="announcement-bar">
-    <div class="marquee">⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website. Enjoy the High Quality Stream on Esports PK.</div>
 </div>
-
-<div id="player-wrapper"></div>
-
-<div style="margin-top: 15px;">
-    <a href="https://esportspk.rf.gd/A-sports1.html" class="player-btn">player 2</a>
-</div>
-
-<script>
-    // --- USING YOUR EXACT NEW PATTERN (_0x12d848 / _0x1417) ---
-    const _0x12d848=_0x4232;
-    (function(_0x378ed5,_0x5a65cc){
-        const _0xb20455=_0x4232, _0x84443f=_0x378ed5();
-        while(!![]){
-            try {
-                const _0x49c06d=-parseInt(_0xb20455(0xcc))/0x1*(-parseInt(_0xb20455(0xbb))/0x2)+-parseInt(_0xb20455(0xca))/0x3+-parseInt(_0xb20455(0xcb))/0x4+parseInt(_0xb20455(0xba))/0x5+parseInt(_0xb20455(0xbd))/0x6*(-parseInt(_0xb20455(0xc9))/0x7)+parseInt(_0xb20455(0xc8))/0x8+-parseInt(_0xb20455(0xc5))/0x9*(-parseInt(_0xb20455(0xc1))/0xa);
-                if(_0x49c06d===_0x5a65cc)break;else _0x84443f['push'](_0x84443f['shift']());
-            } catch(_0x5b0400){
-                _0x84443f['push'](_0x84443f['shift']());
-            }
-        }
-    }(_0x1417, 0x98e7e));
-
-    function _0x4232(_0xed590d,_0x39fe43){
-        _0xed590d=_0xed590d-0xb8;
-        const _0x141712=_0x1417();
-        let _0x423293=_0x141712[_0xed590d];
-        return _0x423293;
-    }
-
-    function _0x1417(){
-        const _0x325170=['createElement','15150CVcQcB','relative','setAttribute','100%','10JIRjzk','appendChild','hidden','body','14487003pFcNvT','iframe','allowfullscreen','4655176wwOxTf','3283wDetxC','1201647OIscdU','2177388asqfzR','17026SWTRdV','https://taimoor.pro.bd/live/crichd/play.php?id=asportshd','true','assign','style','180265PVXIre','62nslLDc'];
-        _0x1417=function(){return _0x325170;};
-        return _0x1417();
-    }
-
-    // Targeting Esports PK Layout
-    const playerWrapper = document.querySelector('#player-wrapper');
-    const videoContainer = document[_0x12d848(0xbc)]('div');
-
-    Object[_0x12d848(0xb8)](videoContainer[_0x12d848(0xb9)], {
-        'position': _0x12d848(0xbe),
-        'paddingBottom': '56.25%',
-        'height': '0',
-        'overflow': _0x12d848(0xc3),
-        'maxWidth': _0x12d848(0xc0),
-        'background': '#000'
-    });
-
-    const videoIframe = document['createElement'](_0x12d848(0xc6));
-    videoIframe['src'] = _0x12d848(0xcd);
-
-    Object['assign'](videoIframe[_0x12d848(0xb9)], {
-        'position': 'absolute',
-        'top': '0',
-        'left': '0',
-        'width': '100%',
-        'height': _0x12d848(0xc0),
-        'border': '0'
-    });
-
-    videoIframe[_0x12d848(0xbf)](_0x12d848(0xc7), _0x12d848(0xce));
-    videoIframe['setAttribute']('scrolling', 'no');
-    
-    videoContainer[_0x12d848(0xc2)](videoIframe);
-    playerWrapper.appendChild(videoContainer);
-
-    // Context menu protection
-    document.addEventListener('contextmenu', e => e.preventDefault());
-</script>
-
-</body>
-</html>
