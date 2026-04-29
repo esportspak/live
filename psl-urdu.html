@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play — Live</title>
+    <script src="https://cdn.jwplayer.com/libraries/KB5zFt7A.js"></script>
+    <style>
+        /* Changed background to white and removed height constraints that cause black bars */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #fff; /* Changed from #000 to white */
+            overflow: hidden; 
+        }
+
+        .player-wrapper { 
+            position: relative; 
+            width: 100%; 
+            height: 100vh; /* Changed to Full Viewport Height to remove empty black space */
+            display: none; 
+        }
+
+        #jwplayerDiv { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+        
+        .watermark-text {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 9999;
+            color: rgba(0, 0, 0, 0.5); /* Changed to dark so it's visible on white */
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="player-container" class="player-wrapper">
+        <div class="watermark-text">esportspk</div>
+        <div id="jwplayerDiv"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const streamUrl = urlParams.get('url');
+        const posterUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr8bd-lVHfNkaoFa9rXjiOrkSBN3CwahyUft1X5SFNnA&s=10";
+
+        if (streamUrl && streamUrl.trim() !== "") {
+            document.getElementById('player-container').style.display = 'block';
+            jwplayer("jwplayerDiv").setup({
+                file: "https://pslurdu.bigbaat.app/out/v1/0ef369b90c7b4025b76621e46ee5fb70/index.m3u8",
+                image: posterUrl,
+                type: "hls",
+                width: "100%",
+                height: "100%",
+                autostart: true,
+                controls: true,
+                stretching: "exactfit", /* Changed to 'exactfit' to fill the container entirely */
+                playbackRateControls: [0.5, 0.75, 1, 1.25, 1.5, 2],
+                cast: {},
+                skin: {
+                    name: "netflix"
+                }
+            });
+        } else {
+            document.body.innerHTML = "Error: No streaming URL provided.";
+            document.body.style.color = "black";
+        }
+    </script>
+</body>
+</html>
