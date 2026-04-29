@@ -1,85 +1,84 @@
-<style>
-    .announcement-bar {
-        color: black;
-        padding: 10px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-    }
-
-    .marquee {
-        display: inline-block;
-        animation: marquee 65.00s linear infinite;
-        padding-left: 100%;
-    }
-
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Esports PK - Live Streaming</title>
+    <style>
+        body { margin: 0; padding: 0; background: #fff; font-family: Arial, sans-serif; text-align: center; }
+        .announcement-bar { background: #f1f1f1; color: black; padding: 10px 0; overflow: hidden; width: 100%; position: relative; }
+        .marquee { display: inline-block; white-space: nowrap; padding-left: 100%; animation: marquee 25s linear infinite; font-size: 14px; font-weight: bold; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        #player-wrapper { width: 100%; margin: auto; }
+        .player-btn { background: #ff8c00; color: white !important; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; margin: 20px auto; display: inline-block; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
 
 <div class="announcement-bar">
-    <div class="marquee">
-        ⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website &amp; application, all the streaming links are from third party websites available freely on the internet. We're just giving way to stream and all content is the copyright of their owner.
-    </div>
+    <div class="marquee">⚠️ DISCLAIMER: Esports does not stream any of the channels included in this website. Enjoy the High Quality Stream on Esports PK.</div>
 </div>
-<script type="text/javascript" src="//www.highperformanceformat.com/f9746dfef85e6ec5c7141e4723441071/invoke.js"></script>
 
-<div id="myHeader">
-<script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+<div id="player-wrapper"></div>
 
-<div id="player"></div>
-
-<script>
-jwplayer("player").resize(480, 270);
-jwplayer('player').setup({
-    file: 'https://crichd.esportspk-com.workers.dev/live/willowextra.m3u8',
-    title: 'Esports Live',
-    width: '100%',
-    aspectratio: '16:9',
-    autostart: true,
-    mute: false,
-    primary: 'html5',
-    controls: true,
-    responsive: true
-});
-</script>
+<div style="margin-top: 15px;">
+    <a href="https://esportspk.rf.gd/A-sports1.html" class="player-btn">Switch Server</a>
 </div>
 
 <script>
-window.onscroll = function() {myFunction()};
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
+    // --- YOUR OBFUSCATED LOGIC START ---
+    const _0x26828a = _0x1773;
+    (function(_0x2a7dfe, _0x42de4a) {
+        const _0x26afdf = _0x1773, _0xebc379 = _0x2a7dfe();
+        while (!![]) {
+            try {
+                const _0x17f9b8 = parseInt(_0x26afdf(0x1c5)) / 0x1 * (-parseInt(_0x26afdf(0x1c7)) / 0x2) + parseInt(_0x26afdf(0x1c4)) / 0x3 + -parseInt(_0x26afdf(0x1d3)) / 0x4 + -parseInt(_0x26afdf(0x1d1)) / 0x5 + -parseInt(_0x26afdf(0x1cd)) / 0x6 * (-parseInt(_0x26afdf(0x1d0)) / 0x7) + parseInt(_0x26afdf(0x1c3)) / 0x8 * (parseInt(_0x26afdf(0x1cf)) / 0x9) + -parseInt(_0x26afdf(0x1bc)) / 0xa * (-parseInt(_0x26afdf(0x1d5)) / 0xb);
+                if (_0x17f9b8 === _0x42de4a) break;
+                else _0xebc379['push'](_0xebc379['shift']());
+            } catch (_0x664821) {
+                _0xebc379['push'](_0xebc379['shift']());
+            }
+        }
+    }(_0x1713, 0x609f3));
+
+    function _0x1773(_0x41ea49, _0x1a6852) {
+        _0x41ea49 = _0x41ea49 - 0x1bc;
+        const _0x1713e7 = _0x1713();
+        let _0x177388 = _0x1713e7[_0x41ea49];
+        return _0x177388;
+    }
+
+    function _0x1713() {
+        const _0x330923 = ['className', '62JEaijg', 'allow', 'autoplay;\x20fullscreen', 'https://taimoor.pro.bd/live/crichd/play.php?id=willowextra', 'loading', 'iframe', '780306eRZRGn', 'appendChild', '1625562kLQvzw', '14mOVKoY', '1457425fBISSp', 'video-container', '1913744EqgKNs', 'head', '1228183iRsGyV', 'createElement', '50VTuRbz', 'style', 'origin', 'allowFullscreen', 'textContent', 'frameBorder', 'referrerPolicy', '32nnOrIJ', '959688tKYnjC', '22421ofAZsI'];
+        _0x1713 = function() { return _0x330923; };
+        return _0x1713();
+    }
+
+    // --- INTEGRATION INTO ESPORTS PK WRAPPER ---
+    const playerWrapper = document.getElementById('player-wrapper');
+    const videoContainer = document[_0x26828a(0x1d6)]('div');
+    videoContainer[_0x26828a(0x1c6)] = _0x26828a(0x1d2);
+
+    const iframe = document[_0x26828a(0x1d6)](_0x26828a(0x1cc));
+    iframe['src'] = _0x26828a(0x1ca);
+    iframe['title'] = 'Live Sports Streaming';
+    iframe[_0x26828a(0x1c1)] = '0';
+    iframe[_0x26828a(0x1bf)] = !![];
+    iframe[_0x26828a(0x1c2)] = _0x26828a(0x1be);
+    iframe[_0x26828a(0x1c8)] = _0x26828a(0x1c9);
+    iframe[_0x26828a(0x1cb)] = 'lazy';
+
+    videoContainer[_0x26828a(0x1ce)](iframe);
+    playerWrapper.appendChild(videoContainer);
+
+    // Injecting Dynamic Styles for Code Protection
+    const style = document[_0x26828a(0x1d6)](_0x26828a(0x1bd));
+    style[_0x26828a(0x1c0)] = '\x0a\x20\x20.video-container\x20{\x0a\x20\x20\x20\x20position:\x20relative;\x0a\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20max-width:\x201200px;\x0a\x20\x20\x20\x20margin:\x20auto;\x0a\x20\x20\x20\x20padding-top:\x2056.25%;\x20/*\x2016:9\x20ratio\x20*/\x0a\x20\x20\x20\x20background:\x20#000;\x0a\x20\x20}\x0a\x20\x20.video-container\x20iframe\x20{\x0a\x20\x20\x20\x20position:\x20absolute;\x0a\x20\x20\x20\x20top:\x200;\x0a\x20\x20\x20\x20left:\x200;\x0a\x20\x20\x20\x20width:\x20100%;\x0a\x20\x20\x20\x20height:\x20100%;\x0a\x20\x20\x20\x20border:\x200;\x0a\x20\x20}\x0a';
+    document[_0x26828a(0x1d4)]['appendChild'](style);
+
+    // Context menu disable for security
+    document.addEventListener('contextmenu', e => e.preventDefault());
 </script>
 
-<script>
-if (window.top !== window.self) {
-  window.top.location = window.self.location;
-}
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 123 || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
-    e.preventDefault();
-  }
-});
-</script>
-
-<script>
-const allowedParent = "https://esportspk.site";
-if (window !== window.top) {
-  if (!document.referrer.startsWith(allowedParent)) {
-    document.body.innerHTML = "<h1>Embedding not allowed</h1>";
-  }
-}
-</script>
-
-<!-- ✅ ONLY ADDED LINE (POPUP) -->
-<script src="/popup.js"></script>
+</body>
+</html>
